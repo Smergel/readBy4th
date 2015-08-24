@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user_id %>
+</p>
+
+<p>
+  <strong>Program:</strong>
+  <%= @post.program_id %>
+</p>
+
+<p>
+  <strong>Post type:</strong>
+  <%= @post.post_type %>
+</p>
+
+<p>
+  <strong>Post description:</strong>
+  <%= @post.post_description %>
+</p>
+
+<p>
+  <strong>Post attachment:</strong>
+  <%= @post.post_attachment %>
+</p>
+
+<p>
+  <strong>Absence:</strong>
+  <%= @post.absence %>
+</p>
+
+<p>
+  <strong>Absence reason:</strong>
+  <%= @post.absence_reason %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

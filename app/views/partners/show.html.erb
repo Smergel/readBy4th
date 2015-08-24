@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @partner.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @partner.address %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @partner.zip_code %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @partner.website %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @partner.email %>
+</p>
+
+<p>
+  <strong>Program start:</strong>
+  <%= @partner.program_start %>
+</p>
+
+<p>
+  <strong>Program end:</strong>
+  <%= @partner.program_end %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @partner.logo %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @partner.phone %>
+</p>
+
+<%= link_to 'Edit', edit_partner_path(@partner) %> |
+<%= link_to 'Back', partners_path %>

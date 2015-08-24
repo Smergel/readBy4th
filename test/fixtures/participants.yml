@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  partner_id: 1
+  first_name: MyString
+  last_name: MyString
+  absence: 1
+  email: MyString
+  date_of_birth: 2015-08-24
+  home_address: MyString
+  school: MyString
+  parent_name: MyString
+  student: false
+
+two:
+  partner_id: 1
+  first_name: MyString
+  last_name: MyString
+  absence: 1
+  email: MyString
+  date_of_birth: 2015-08-24
+  home_address: MyString
+  school: MyString
+  parent_name: MyString
+  student: false
