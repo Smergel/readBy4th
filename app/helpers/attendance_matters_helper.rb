@@ -1,0 +1,2 @@
+module AttendanceMattersHelper
+end

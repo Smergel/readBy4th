@@ -51,7 +51,28 @@
 <%= link_to "Add Participant", new_participant_path %><br />
 
 
-<%= render "family_engagement" %>
+<%= render "family_engagement" %><br />
+<%= render "year_round_readers" %><br />
+
+<ul>
+<% @students.each do |x| %>
+  <li>
+    <%= x.first_name %>
+    <%= form_for(@attendance_matter) do |f| %>
+    <%= @participant_id = x.id %>
+    <%= f.label :absences %>
+    <%= f.number_field :absences %>
+    <%= f.label :asthma_related %>
+    <%= f.check_box :asthma %>
+    <%= f.label :reason %>
+    <%= f.text_field :reason %>
+    <%= f.label :excused %>
+    <%= f.check_box :excused %>
+    <%= f.submit :Submit %>
+    <% end %>
+  </li>
+<% end %>
+</ul>
 
 
 

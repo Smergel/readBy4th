@@ -1,0 +1,33 @@
+<%= form_for(@year_round_readers) do |f| %>
+  <% if @year_round_readers.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@year_round_readers.errors.count, "error") %> prohibited this year_round_readers from being saved:</h2>
+
+      <ul>
+      <% @year_round_readers.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :hours_read %><br>
+    <%= f.number_field :hours_read %>
+  </div>
+  <div class="field">
+    <%= f.label :books_read %><br>
+    <%= f.number_field :books_read %>
+  </div>
+  <div class="field">
+    <%= f.label :hours_read_to %><br>
+    <%= f.number_field :hours_read_to %>
+  </div>
+  <div class="field">
+    <%= f.label :books_loaned %><br>
+    <%= f.number_field :books_loaned %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
