@@ -1,3 +1,5 @@
 class AttendanceMatter < ActiveRecord::Base
-  belongs_to :partner
+  has_one     :partner
+  has_one     :user
+  belongs_to  :participant
 end

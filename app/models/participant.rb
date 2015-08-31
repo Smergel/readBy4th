@@ -1,3 +1,4 @@
 class Participant < ActiveRecord::Base
-  belongs_to :partner
+  belongs_to  :partner
+  has_one     :attendance_matters
 end

@@ -1,3 +1,3 @@
 class FamilyEngagement < ActiveRecord::Base
-  belongs_to :partner
+  belongs_to  :partner
 end

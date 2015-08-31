@@ -10,6 +10,7 @@ class PartnersController < ApplicationController
   # GET /partners/1
   # GET /partners/1.json
   def show
+    @family_engagement = FamilyEngagement.new
   end
 
   # GET /partners/new
