@@ -11,6 +11,10 @@ class PartnersController < ApplicationController
   # GET /partners/1.json
   def show
     @family_engagement = FamilyEngagement.new
+    @year_round_readers = YearRoundReader.new
+    @attendance_matter = AttendanceMatter.new
+
+    @students = Participant.where(student: true)
   end
 
   # GET /partners/new
