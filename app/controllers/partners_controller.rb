@@ -14,7 +14,7 @@ class PartnersController < ApplicationController
     @year_round_readers = YearRoundReader.new
     @attendance_matter = AttendanceMatter.new
 
-    @students = Participant.where(student: true)
+    @students = Participant.where(student: true, partner_id: @partner.id)
   end
 
   # GET /partners/new

@@ -3,63 +3,27 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @partner.name %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @partner.address %>
-</p>
-
-<p>
-  <strong>Zip code:</strong>
-  <%= @partner.zip_code %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @partner.website %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @partner.email %>
-</p>
-
-<p>
-  <strong>Program start:</strong>
-  <%= @partner.program_start %>
-</p>
-
-<p>
-  <strong>Program end:</strong>
-  <%= @partner.program_end %>
-</p>
-
-
-
-<p>
-  <strong>Phone:</strong>
-  <%= @partner.phone %>
-</p>
-
-<%= link_to 'Edit', edit_partner_path(@partner) %> |
-<%= link_to 'Back', partners_path %><br />
-
+<hr />
+<h1>Create Participant</h1>
 <%= link_to "Add Participant", new_participant_path %><br />
 
-
+<hr />
+<h1>Community Awareness Stats</h1>
 <%= render "family_engagement" %><br />
+<hr />
+<h1>Reading Stats</h1>
 <%= render "year_round_readers" %><br />
 
+<hr />
+<h1>Attendane List</h1>
 <ul>
 <% @students.each do |x| %>
   <li>
     <%= x.first_name %>
+    <%= x.id %>
     <%= form_for(@attendance_matter) do |f| %>
-    <%= @participant_id = x.id %>
+    <%= f.number_field :participant_id, value: x.id %>
     <%= f.label :absences %>
     <%= f.number_field :absences %>
     <%= f.label :asthma_related %>
@@ -73,6 +37,36 @@
   </li>
 <% end %>
 </ul>
+
+<hr />
+
+<div id="report_card">
+  <h1>Report Card</h1>
+  <div class="stat">
+    <h5 class="title">Total Absences:</h5>
+    <% @students.each do |x| %>
+    <%= x.attendance_matter.inspect %>
+    <% end %>
+  </div>
+<hr />
+<div class="vcard">
+  <div class="org"><%= @partner.name %></div>
+  <div class="email"><span class="vcard-label">Email: </span><a><%= @partner.email %></a></div>
+  <div class="tel"><span class="type vcard-label">Phone: </span><a href="tel:+<% @partner.phone %>"><%= @partner.phone %></a></div>
+  <div class="adr">
+    <div class="email"><span class="vcard-label">Website: </span><a href="<% @partner.website %>"><%= @partner.website %></a></div>
+    <span class="vcard-label">Address: </span>
+    <div class="street-address"><%= @partner.address %></div>
+    <span class="locality">Philadelphia</span>,
+    <abbr class="region" title="Pennsylvania">PA</abbr>,
+    <span class="postal-code"><%= @partner.zip_code %></span>
+  </div>
+</div>
+
+<hr />
+<%= link_to 'Edit', edit_partner_path(@partner) %> |
+<%= link_to 'Back', partners_path %><br />
+</div>
 
 
 
