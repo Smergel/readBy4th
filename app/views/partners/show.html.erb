@@ -1,44 +1,71 @@
-<h1>Page That Partners See When They Log In</h1>
-
-
+<html>
+<head>
+  <title>Partner Page</title>
+</head>
+<body>
+<!-- <h1>Page That Partners See When They Log In</h1> -->
 <p id="notice"><%= notice %></p>
 
+<h1 class="alternate divide"><%= @partner.name %> Quick Information</h1>
 
-<hr />
-<h1>Create Participant</h1>
-<%= link_to "Add Participant", new_participant_path %><br />
+<div class="row">
+  <div class="large-12 columns">
+    <div class="vcard">
+      <h1><%= @partner.name %></h1>
+      <div class="logo"></div>
+      <div class="email"><span class="vcard-label">Email: </span><a><%= @partner.email %></a></div>
+      <div class="tel"><span class="type vcard-label">Phone: </span><a href="tel:+<% @partner.phone %>"><%= @partner.phone %></a></div>
+      <div class="adr">
+        <div class="email"><span class="vcard-label">Website: </span><a href="<% @partner.website %>"><%= @partner.website %></a></div>
+        <span class="vcard-label">Address: </span>
+        <div class="street-address"><%= @partner.address %></div>
+        <span class="locality">Philadelphia</span>,
+        <abbr class="region" title="Pennsylvania">PA</abbr>,
+        <span class="postal-code"><%= @partner.zip_code %></span>
+      </div>
+      <%= link_to 'Edit', edit_partner_path(@partner) %> |
+      <%= link_to 'Back', partners_path %>
+    </div>
+    <h1>Create Participant</h1>
+    <%= link_to "Add Participant", new_participant_path, class: "button" %>
+  </div>
+  <div class="large-12 columns">
+    <h1>Roll Call</h1>
+    <ul>
+      <% @students.each do |x| %>
+        <li>
+          <%= x.first_name %>
+          <%= x.id %>
+          <%= form_for(@attendance_matter) do |f| %>
+          <%= f.number_field :participant_id, value: x.id %>
+          <%= f.label :absences %>
+          <%= f.number_field :absences %>
+          <%= f.label :asthma_related %>
+          <%= f.check_box :asthma %>
+          <%= f.label :reason %>
+          <%= f.text_field :reason %>
+          <%= f.label :excused %>
+          <%= f.check_box :excused %>
+          <%= f.submit :Submit %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<hr />
-<h1>Community Awareness Stats</h1>
-<%= render "family_engagement" %><br />
-<hr />
-<h1>Reading Stats</h1>
-<%= render "year_round_readers" %><br />
+<h1 class="alternate divide">Enter Data</h1>
 
-<hr />
-<h1>Attendane List</h1>
-<ul>
-<% @students.each do |x| %>
-  <li>
-    <%= x.first_name %>
-    <%= x.id %>
-    <%= form_for(@attendance_matter) do |f| %>
-    <%= f.number_field :participant_id, value: x.id %>
-    <%= f.label :absences %>
-    <%= f.number_field :absences %>
-    <%= f.label :asthma_related %>
-    <%= f.check_box :asthma %>
-    <%= f.label :reason %>
-    <%= f.text_field :reason %>
-    <%= f.label :excused %>
-    <%= f.check_box :excused %>
-    <%= f.submit :Submit %>
-    <% end %>
-  </li>
-<% end %>
-</ul>
+<div class="row">
+  <div class="large-12 columns">
+    <%= render "family_engagement" %>
+  </div>
+  <div class="large-12 columns">
+    <%= render "year_round_readers" %>
+  </div>
+</div>
 
-<hr />
+<h1 class="alternate divide">Report Card</h1>
 
 <div id="report_card">
   <h1>Report Card</h1>
@@ -48,26 +75,9 @@
     <%= x.attendance_matter.inspect %>
     <% end %>
   </div>
-<hr />
-<div class="vcard">
-  <div class="org"><%= @partner.name %></div>
-  <div class="email"><span class="vcard-label">Email: </span><a><%= @partner.email %></a></div>
-  <div class="tel"><span class="type vcard-label">Phone: </span><a href="tel:+<% @partner.phone %>"><%= @partner.phone %></a></div>
-  <div class="adr">
-    <div class="email"><span class="vcard-label">Website: </span><a href="<% @partner.website %>"><%= @partner.website %></a></div>
-    <span class="vcard-label">Address: </span>
-    <div class="street-address"><%= @partner.address %></div>
-    <span class="locality">Philadelphia</span>,
-    <abbr class="region" title="Pennsylvania">PA</abbr>,
-    <span class="postal-code"><%= @partner.zip_code %></span>
-  </div>
 </div>
-
-<hr />
-<%= link_to 'Edit', edit_partner_path(@partner) %> |
-<%= link_to 'Back', partners_path %><br />
-</div>
-
+</body>
+</html>
 
 
 
