@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+ .logo {
+ 	width: 100px;
+ 	height: 100px;
+ 	background-color: darkblue;
+ 	margin-bottom: 25px;
+ }
+ .alternate-divide {
+ 	text-indent: 15px;
+ }
+
+ .hide {
+ 	display: none;
+ }
+ .student-roll-call {
+ 	display: inline-block;
+ 	margin-right: 5px;
+ }
+ .name {
+ 	width: 65px;
+ }
+ img {
+ 	margin-top: 10px;
+ }
+ /*nav.top-bar {
+ 	background-color: darkblue;
+ }*/
+ 
+

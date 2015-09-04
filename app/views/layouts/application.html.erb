@@ -5,12 +5,72 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//cityofphiladelphia.github.io/patterns/dist/0.10.1/css/patterns.css">
+	<script type='text/javascript' src='//cityofphiladelphia. github.io/patterns/dist/0.10.1/js/patterns.min.js'></script>
+	<link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js?ver=2.8.3'></script>
 </head>
 <body>
-<%= link_to "Home", '/' %>
+
+<nav class="top-bar" data-topbar role="navigation">
+	<section class="top-bar-section">
+		<!-- <ul class="left">
+			<li class="active"><a href="#">
+				<img src="http://www.mayorsfundphila.org/wp-content/uploads/2015/07/Free-Library-of-Phila.png" /></a>
+			</li>
+		</ul> -->
+	</section>
+	<section class="top-bar-section">
+		<ul class="right">
+			<li class="active"><a href="/">Home</a></li>
+			<% if !current_user.nil? %>
+				<li class="active"><a href="#">PDF Report Card</a></li>
+				<li class="active"><%= link_to "Log Out", destroy_user_session_path, method: "DELETE" %></li>
+			<% else %>
+				<li class="active"><%= link_to "New Partner", new_partner_path %></li>
+				<li class="active"><%= link_to "Sign In", new_user_session_path %></li>
+			<% end %>
+		</ul>
+	</section>
+</nav>
+<hr />
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+
 <%= yield %>
 
+<footer data-swift-index="false" class="site-footer" role="contentinfo">
+  <section class="fat">
+    <div class="row">
+      <div class="large-8 columns">
+        <h1>Partner Information</h1>
+        <nav>
+          <ul>
+            <li><a href="#">Policy Notes</a></li>
+            <li><a href="#">Partner Agreement</a></li>
+            <li><a href="#">Office Hours</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="#">Health Notes</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="large-16 columns">
+        <h1>Free Library of Philadelphia</h1>
+        <nav>
+          <ul class="columns-2">
+            <li><a href="#">Free Library Website</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">The Grant</a></li>
+            <li><a href="#">Business Plan</a></li>
+            <li><a href="#">Yearly Stats</a></li>
+            <li><a href="#">Yearly Targets</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+</footer>
 </body>
 </html>

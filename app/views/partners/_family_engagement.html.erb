@@ -1,4 +1,6 @@
 <%= form_for(@family_engagement) do |f| %>
+  <fieldset>
+      <legend>Family Engagement</legend>
   <% if @family_engagement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@family_engagement.errors.count, "error") %> prohibited this family_engagement from being saved:</h2>
@@ -32,6 +34,7 @@
     <%= f.number_field :public_speech %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :Submit, class: "button" %>
   </div>
+  </fieldset>
 <% end %>

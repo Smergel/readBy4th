@@ -1,79 +1,100 @@
-<h1>Page That Partners See When They Log In</h1>
-
-
+<html>
+<head>
+  <title>Partner Page</title>
+</head>
+<body>
+<!-- <h1>Page That Partners See When They Log In</h1> -->
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @partner.name %>
-</p>
+<h1 class="alternate divide alternate-divide"><%= @partner.name %> Quick Information</h1>
 
-<p>
-  <strong>Address:</strong>
-  <%= @partner.address %>
-</p>
+<div class="row">
+  <div class="large-8 columns">
+    <div class="vcard">
+      <h1><%= @partner.name %></h1>
+      <div class="logo"></div>
+      <div class="email"><span class="vcard-label">Email: </span><a><%= @partner.email %></a></div>
+      <div class="tel"><span class="type vcard-label">Phone: </span><a href="tel:+<% @partner.phone %>"><%= @partner.phone %></a></div>
+      <div class="adr">
+        <div class="email"><span class="vcard-label">Website: </span><a href="<% @partner.website %>"><%= @partner.website %></a></div>
+        <span class="vcard-label">Address: </span>
+        <div class="street-address"><%= @partner.address %></div>
+        <span class="locality">Philadelphia</span>,
+        <abbr class="region" title="Pennsylvania">PA</abbr>,
+        <span class="postal-code"><%= @partner.zip_code %></span>
+      </div>
+      <%= link_to 'Edit', edit_partner_path(@partner) %> |
+      <%= link_to 'Back', partners_path %>
+    </div>
+  </div>
+  <div class="large-16 columns">
+    <h1>Roll Call</h1>
+    <ul>
+      <% @students.each do |x| %>
+        <li>
+          <ul>
+            <li class="student-roll-call name"><strong><%= x.first_name %></strong></li>
+            <li class="student-roll-call"><%= form_for(@attendance_matter) do |f| %></li>
+            <li class="student-roll-call hide"><%= f.number_field :participant_id, value: x.id %></li>
+            <li class="student-roll-call"><%= f.number_field :absences, placeholder: "# weekly absences" %></li>
+            <li class="student-roll-call"><%= f.label :asthma_related %></li>
+            <li class="student-roll-call"><%= f.check_box :asthma %></li>
+            <li class="student-roll-call"><%= f.submit :Submit, class: "button alternate" %></li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to "Add Participant", new_participant_path, class: "button" %>
+  </div>
+</div>
 
-<p>
-  <strong>Zip code:</strong>
-  <%= @partner.zip_code %>
-</p>
+<h1 class="alternate divide alternate-divide">Enter Data</h1>
 
-<p>
-  <strong>Website:</strong>
-  <%= @partner.website %>
-</p>
+<div class="row">
+  <div class="large-12 columns">
+    <%= render "family_engagement" %>
+  </div>
+  <div class="large-12 columns">
+    <%= render "year_round_readers" %>
+  </div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @partner.email %>
-</p>
+<h1 class="alternate divide alternate-divide">Report Card</h1>
 
-<p>
-  <strong>Program start:</strong>
-  <%= @partner.program_start %>
-</p>
+<div id="report_card">
+  <div class="row"> 
+    <div class="large-8 columns"> 
+      <div class="stat">
+        <h5 class="title">Total Absences:</h5>
+        <% abs = [] %>
+        <% @all_attendance.map do |x| %>
+        <% abs.insert(0, x.absences.to_i) %>
+        <% end %>
+        <%= abs.inject(0, :+) %>
+      </div>
+    </div>
+    <div class="large-8 columns">
+      <div class="stat">
+        <h5 class="title">Total Hours Read:</h5>
+        <% thr = [] %>
+        <% @all_year_round_reader.map do |x| %>
+        <% thr.insert(0, x.hours_read.to_i) %>
+        <% end %>
+        <%= thr.inject(0, :+) %>
+      </div>
+    </div>
+    <div class="large-8 columns">
+      <div class="stat">
+        <h5 class="title">Total Books Read:</h5>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Program end:</strong>
-  <%= @partner.program_end %>
-</p>
 
-
-
-<p>
-  <strong>Phone:</strong>
-  <%= @partner.phone %>
-</p>
-
-<%= link_to 'Edit', edit_partner_path(@partner) %> |
-<%= link_to 'Back', partners_path %><br />
-
-<%= link_to "Add Participant", new_participant_path %><br />
-
-
-<%= render "family_engagement" %><br />
-<%= render "year_round_readers" %><br />
-
-<ul>
-<% @students.each do |x| %>
-  <li>
-    <%= x.first_name %>
-    <%= form_for(@attendance_matter) do |f| %>
-    <%= @participant_id = x.id %>
-    <%= f.label :absences %>
-    <%= f.number_field :absences %>
-    <%= f.label :asthma_related %>
-    <%= f.check_box :asthma %>
-    <%= f.label :reason %>
-    <%= f.text_field :reason %>
-    <%= f.label :excused %>
-    <%= f.check_box :excused %>
-    <%= f.submit :Submit %>
-    <% end %>
-  </li>
-<% end %>
-</ul>
-
+</body>
+</html>
 
 
 
