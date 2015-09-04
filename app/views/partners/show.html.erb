@@ -6,10 +6,10 @@
 <!-- <h1>Page That Partners See When They Log In</h1> -->
 <p id="notice"><%= notice %></p>
 
-<h1 class="alternate divide"><%= @partner.name %> Quick Information</h1>
+<h1 class="alternate divide alternate-divide"><%= @partner.name %> Quick Information</h1>
 
 <div class="row">
-  <div class="large-12 columns">
+  <div class="large-8 columns">
     <div class="vcard">
       <h1><%= @partner.name %></h1>
       <div class="logo"></div>
@@ -26,35 +26,30 @@
       <%= link_to 'Edit', edit_partner_path(@partner) %> |
       <%= link_to 'Back', partners_path %>
     </div>
-    <h1>Create Participant</h1>
-    <%= link_to "Add Participant", new_participant_path, class: "button" %>
   </div>
-  <div class="large-12 columns">
+  <div class="large-16 columns">
     <h1>Roll Call</h1>
     <ul>
       <% @students.each do |x| %>
         <li>
-          <%= x.first_name %>
-          <%= x.id %>
-          <%= form_for(@attendance_matter) do |f| %>
-          <%= f.number_field :participant_id, value: x.id %>
-          <%= f.label :absences %>
-          <%= f.number_field :absences %>
-          <%= f.label :asthma_related %>
-          <%= f.check_box :asthma %>
-          <%= f.label :reason %>
-          <%= f.text_field :reason %>
-          <%= f.label :excused %>
-          <%= f.check_box :excused %>
-          <%= f.submit :Submit %>
-          <% end %>
+          <ul>
+            <li class="student-roll-call name"><strong><%= x.first_name %></strong></li>
+            <li class="student-roll-call"><%= form_for(@attendance_matter) do |f| %></li>
+            <li class="student-roll-call hide"><%= f.number_field :participant_id, value: x.id %></li>
+            <li class="student-roll-call"><%= f.number_field :absences, placeholder: "# weekly absences" %></li>
+            <li class="student-roll-call"><%= f.label :asthma_related %></li>
+            <li class="student-roll-call"><%= f.check_box :asthma %></li>
+            <li class="student-roll-call"><%= f.submit :Submit, class: "button alternate" %></li>
+            <% end %>
+          </ul>
         </li>
       <% end %>
     </ul>
+    <%= link_to "Add Participant", new_participant_path, class: "button" %>
   </div>
 </div>
 
-<h1 class="alternate divide">Enter Data</h1>
+<h1 class="alternate divide alternate-divide">Enter Data</h1>
 
 <div class="row">
   <div class="large-12 columns">
@@ -65,17 +60,39 @@
   </div>
 </div>
 
-<h1 class="alternate divide">Report Card</h1>
+<h1 class="alternate divide alternate-divide">Report Card</h1>
 
 <div id="report_card">
-  <h1>Report Card</h1>
-  <div class="stat">
-    <h5 class="title">Total Absences:</h5>
-    <% @students.each do |x| %>
-    <%= x.attendance_matter.inspect %>
-    <% end %>
+  <div class="row"> 
+    <div class="large-8 columns"> 
+      <div class="stat">
+        <h5 class="title">Total Absences:</h5>
+        <% abs = [] %>
+        <% @all_attendance.map do |x| %>
+        <% abs.insert(0, x.absences.to_i) %>
+        <% end %>
+        <%= abs.inject(0, :+) %>
+      </div>
+    </div>
+    <div class="large-8 columns">
+      <div class="stat">
+        <h5 class="title">Total Hours Read:</h5>
+        <% thr = [] %>
+        <% @all_year_round_reader.map do |x| %>
+        <% thr.insert(0, x.hours_read.to_i) %>
+        <% end %>
+        <%= thr.inject(0, :+) %>
+      </div>
+    </div>
+    <div class="large-8 columns">
+      <div class="stat">
+        <h5 class="title">Total Books Read:</h5>
+      </div>
+    </div>
   </div>
 </div>
+
+
 </body>
 </html>
 
