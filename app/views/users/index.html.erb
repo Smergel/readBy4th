@@ -29,3 +29,18 @@
 <br>
 
 <%= link_to 'New User', new_user_path %>
+
+
+
+<%= link_to "All Users", :action => "index" %>
+
+<%= link_to "Users awaiting approval", :action => "index", :approved => "false" %>
+
+<table>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.approved %></td>
+          <td><%= link_to "Edit", edit_user_path(user) %></td>
+        </tr>
+</table>
