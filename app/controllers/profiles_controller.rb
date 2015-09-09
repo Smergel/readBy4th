@@ -28,6 +28,8 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
+        @profile.user_id = current_user.id
+        @profile.user_email = current_user.email
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
