@@ -12,41 +12,43 @@
         </ul>
       </div>
     <% end %>
-
-    <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label :address %><br>
-      <%= f.text_field :address %>
-    </div>
-    <div class="field">
-      <%= f.label :zip_code %><br>
-      <%= f.number_field :zip_code %>
-    </div>
-    <div class="field">
-      <%= f.label :website %><br>
-      <%= f.text_field :website %>
-    </div>
-    <div class="field">
-      <%= f.label :email %><br>
-      <%= f.text_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :program_start %><br>
-      <%= f.datetime_select :program_start %>
-    </div>
-    <div class="field">
-      <%= f.label :program_end %><br>
-      <%= f.datetime_select :program_end %>
-    </div>
-    <div class="field">
-      <%= f.label :phone %><br>
-      <%= f.number_field :phone %>
-    </div>
-    <div class="actions">
-      <%= f.submit :Submit, class: "button" %>
-    </div>
-  </fieldset>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :zip_code %><br>
+    <%= f.number_field :zip_code %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br>
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :program_start %><br>
+    <%= f.datetime_select :program_start %>
+  </div>
+  <div class="field">
+    <%= f.label :program_end %><br>
+    <%= f.datetime_select :program_end %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.number_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :logo %><br>
+    <%= f.file_field :logo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
