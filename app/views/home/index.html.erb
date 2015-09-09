@@ -14,3 +14,4 @@
 <% if !@user.nil? %>
 <%= link_to (Partner.find(@user.partner_id).name), partner_path(@user.partner_id) %>
 <% end %>
+
