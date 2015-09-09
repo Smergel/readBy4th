@@ -9,8 +9,8 @@
 
 <%= link_to "Log Out", destroy_user_session_path, method: "DELETE" %><br />
 
-<%= @user %><br />
 
 <% if !@user.nil? %>
-<%= link_to (Partner.find(@user.partner_id).name), partner_path(@user.partner_id) %>
+  <%= link_to (Partner.find(@user.partner_id).name), partner_path(@user.partner_id) %>
 <% end %>
+
