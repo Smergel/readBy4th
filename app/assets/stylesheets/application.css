@@ -27,10 +27,10 @@
  .hide {
  	display: none;
  }
- .student-roll-call {
+ /*.student-roll-call {
  	display: inline-block;
  	margin-right: 5px;
- }
+ }*/
  .name {
  	width: 65px;
  }
