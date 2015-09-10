@@ -27,9 +27,9 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
 
     respond_to do |format|
+      @profile.user_id = current_user.id
+      @profile.user_email = current_user.email
       if @profile.save
-        @profile.user_id = current_user.id
-        @profile.user_email = current_user.email
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
@@ -43,7 +43,10 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1.json
   def update
     respond_to do |format|
+      @profile.user_id = current_user.id
+      @profile.user_email = current_user.email
       if @profile.update(profile_params)
+        @profile.user_email = current_user.email
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
