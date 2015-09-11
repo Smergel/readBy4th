@@ -1,7 +1,7 @@
 <h1>WTF</h1>
 
 <%= form_tag("load_partner", method: "post") do %>
-  <%= select("Partner", "person_id", Partner.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %>
+  <%= select_tag("partner", options_from_collection_for_select(@partners, "id", "name"), include_blank: "None") %>
   <%= submit_tag("Select your Partner Orginization") %>
 <% end %>
 

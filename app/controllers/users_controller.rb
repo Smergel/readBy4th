@@ -72,9 +72,9 @@ class UsersController < ApplicationController
   end
 
   def load_partner
-    @partner = params[:partner] unless params[:partner].nil?
-    puts @partner.inspect << "this is the partner<<<<<"
-    redirect_to "/"
+    @partner = params[:partner]
+    puts @partner  
+    redirect_to new_user_registration
   end
 
   private

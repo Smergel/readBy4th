@@ -1,0 +1,4 @@
+<%= form_tag("load_partner", method: "post") do %>
+  <%= select(:partner, "partner_id", Partner.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %>
+  <%= submit_tag("Select your Partner Orginization") %>
+<% end %>
