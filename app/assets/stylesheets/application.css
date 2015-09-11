@@ -51,6 +51,24 @@
 .media-title {
 	text-align: center;
 }
+.center {
+	text-align: center;
+}
+.justify {
+	text-align: justify;
+}
+.reg {
+	width: 500px;
+}
+.padder {
+	padding: 20px;
+	background-color: #fff;
+}
+.darkness {
+	background-color: #f4f4f4;
+	width: 100vw;
+}
+
  
  
 
