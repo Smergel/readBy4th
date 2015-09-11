@@ -1,19 +1,225 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div id="site-wide-alert">
+  <div class="row">
+    <div class="large-8 columns">
+      <h2><i class="ionicons ion-alert-circled"></i>Free Library Advisory</h2>
+        <div class="alert-start"><time datetime="2015-01-05T+06:00">01-05-2015 06:00pm</time> <strong>to</strong> <time datetime="2015-01-08T+02:00">01-08-2015 02:00</time>pm</div>
+      	</div>
+	    <div class="large-16 columns">
+	      <strong>Code Blue Effective: </strong>A child has gone missing from a center city program. If you are in the area and see a lost girl, age 8, white, black hair, please apprehend her.
+	    </div>
+    </div>
+</div>
 
-<h1>Landing Page</h1>
+<h1 class="divide alternate alternate-divide">Perspective Partner Information</h1>
 
-<%= link_to "New Partner", new_partner_path %><br />
+<div class="row">
+	<div class="large-12 columns">
+		<div class="row">
+			<div class="large-24 columns">
+				<h1>Become A Partner</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="call-to-action small-8 columns">
+			    <a href="#" target="_blank" aria-label="Submit a Request to 311" role="button">
+			    <span class="fa-stack fa-3x">
+			        <i class="fa fa-circle fa-stack-2x"></i>
+			        <i class="fa fa-stack-1x fa-inverse">
+			        	<span class="h6">Q&A</span>
+			    	</i>
+			    </span>
+			    <h2 class="h5">Frequently Asked Questions</h2>
+		    	<span class="accessible"> Opens in new window</span>
+				</a>
+			</div>
+			<div class="call-to-action small-8 columns">
+			    <a href="#" target="_blank" aria-label="Submit a Request to 311" role="button">
+			    <span class="fa-stack fa-3x">
+			        <i class="fa fa-circle fa-stack-2x"></i>
+			        <i class="fa fa-stack-1x fa-inverse">
+			        	<span class="h6">?</span>
+			    	</i>
+			    </span>
+			    <h2 class="h5">Contact Us</h2>
+		    	<span class="accessible"> Opens in new window</span>
+				</a>
+			</div>
+			<div class="call-to-action small-8 columns">
+			    <a href="#" target="_blank" aria-label="Submit a Request to 311" role="button">
+			    <span class="fa-stack fa-3x">
+			        <i class="fa fa-circle fa-stack-2x"></i>
+			        <i class="fa fa-stack-1x fa-inverse">
+			        	<span class="h6">?</span>
+			    	</i>
+			    </span>
+			    <h2 class="h5">Current Partners List</h2>
+		    	<span class="accessible"> Opens in new window</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="large-12 columns">
+		<div class="technical-info">
+			<p>
+				<a href="#"><span class="title"><em>Grant Information</em></span>
+				<br />
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.
+				</a>
+			</p>
+			<p>
+				<a href="#"><span class="title"><em>Partner Obligations</em></span>
+				<br />
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.
+				</a>
+			</p>
+			<p>
+				<a href="#"><span class="title"><em>Recieving Money</em></span>
+				<br />
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.
+				</a>
+			</p>
+			<p>
+				<a href="#"><span class="title"><em>Community Outreach</em></span>
+				<br />
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.
+				</a>
+			</p>
+		</div>
+	</div>
+</div>
+
 
 <%= link_to "New User", new_user_registration_path %><br />
 
 <%= link_to "Sign In", new_user_session_path %><br />
-
-<%= link_to "Log Out", destroy_user_session_path, method: "DELETE" %><br />
-
-
 <% if !@user.nil? %>
   <%= link_to (Partner.find(@user.partner_id).name), partner_path(@user.partner_id) %><br />
   <%= @user.profile.first_name %>
 <% end %>
+
+<h1 class="divide alternate alternate-divide">Read! By 4th In The Media</h1>
+
+<div class="row">
+	<div class="large-8 columns">
+	 	<h1 class="media-title">Eagles! Volunteer Locally</h1>
+	 	<div class="picture"></div>
+	 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	 	</p>
+ 	</div>
+    <div class="large-8 columns">
+	 	<h1 class="media-title">Read! Goes National</h1>
+	 	<div class="picture"></div>
+	 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	 	</p>
+ 	</div>
+ 	<div class="large-8 columns">
+	 	<h1 class="media-title">Philly Programs Begin</h1>
+	 	<div class="picture"></div>
+	 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	 	</p>
+ 	</div>
+</div>
+
+<h1 class="divide alternate alternate-divide">Upcoming Partner Events</h1>
+
+<div class="row"> 
+	<table role="grid" summary="A description of the table should go here for screenreaders.">
+	  <tbody>
+	    <tr>
+	      <th>2015-06-28</th>
+	      <td>YMCA</td>
+	      <td>A program ending group picnic that is open to the public.</td>
+	    </tr>
+	    <tr>
+	      <th>2015-06-26</th>
+	      <td>Eagles Youth Camp</td>
+	      <td>Participants of all ages get to visit with the Eagles at training camp.</td>
+	    </tr>
+	    <tr>
+	      <th>2015-06-24</th>
+	      <td>Branch Foundation</td>
+	      <td>Dr Suess read along in the park.</td>
+	    </tr>
+	    <tr>
+	      <th>2015-06-18</th>
+	      <td>Silly Joe Bob</td>
+	      <td>Meet the man who has all the money.</td>
+	    </tr>
+	    <tr>
+	      <th>2015-06-15</th>
+	      <td>Barnes Foundation</td>
+	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+	    </tr>
+	    <tr>
+	      <th>2015-06-11</th>
+	      <td>Community Outreach</td>
+	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+	    </tr>
+	    <tr>
+	      <th>2015-06-02</th>
+	      <td>P.S. 114 Summer Program</td>
+	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+	    </tr>
+	     <tr>
+	      <th>2015-05-28</th>
+	      <td>YMCA</td>
+	      <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+	    </tr>
+	    <tr>
+	      <th>2015-05-26</th>
+	      <td>Enter Sand Man</td>
+	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+	    </tr>
+	    <tr>
+	      <th>2015-05-24</th>
+	      <td>McOnly Grant</td>
+	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+	    </tr>
+	    <tr>
+	      <th>2015-05-18</th>
+	      <td>Read! By 4th</td>
+	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+	    </tr>
+	    <tr>
+	      <th>2015-05-15</th>
+	      <td>Princeton</td>
+	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+	    </tr>
+	    <tr>
+	      <th>2015-05-11</th>
+	      <td>Temple Owls</td>
+	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+	    </tr>
+	    <tr>
+	      <th>2015-05-02</th>
+	      <td>UPenn Youth</td>
+	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+	    </tr>
+	  </tbody>
+	</table>
 

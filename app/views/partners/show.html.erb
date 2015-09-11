@@ -9,7 +9,7 @@
 <h1 class="alternate divide alternate-divide"><%= @partner.name %> Quick Information</h1>
 
 <div class="row">
-  <div class="large-8 columns">
+  <div class="large-5 columns">
     <div class="vcard">
       <h1><%= @partner.name %></h1>
       <div class="logo"></div>
@@ -26,30 +26,37 @@
       <%= link_to 'Edit', edit_partner_path(@partner) %>
     </div>
   </div>
-  <div class="large-16 columns">
+  <div class="large-19 columns">
     <h1>Roll Call / Books Completed</h1>
-    <ul class="no-bullets inline-list">
-      <% @students.each do |x| %>
-        <li>
-          <ul class="no-bullets inline-list">
-            <li class="name"><strong><%= x.first_name %></strong></li>
-            <li><%= form_for(@attendance_matter) do |f| %></li>
-            <li class="hide"><%= f.number_field :participant_id, value: x.id %></li>
-            <li><%= f.number_field :absences, placeholder: "# weekly absences" %></li>
-            <li><%= f.label :asthma_related %></li>
-            <li><%= f.check_box :asthma %></li>
-            <li><%= f.submit :Submit, class: "button alternate" %></li>
-            <% end %>
-          </ul>
-        </li>
-      <% end %>
-    </ul>
     <ul class="inline-list">
       <li><%= link_to "Add Participant", new_participant_path, class: "button" %></li>
       <li><%= link_to "Upload Student CSV", '/', class: "button" %></li>
       <li><%= link_to "Absentee Data PDF", '/', class: "button" %></li>
-
     </ul>
+    
+    <table>
+      <thead>
+        <tr>
+          <th width="200">Name</th>
+          <th># Days Absent</th>
+          <th>Asthma Related?</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @students.each do |x| %>
+          <tr>
+            <td><%= x.first_name %></td>
+            <%= form_for(@attendance_matter) do |f| %>
+              <%= f.hidden_field :participant_id, value: x.id %>
+              <td><%= f.number_field :absences, placeholder: "# Of Absences" %></td>
+              <td width="50"><%= f.check_box :asthma %></td>
+              <td width="100"><%= f.submit :Submit, class: "button alternate"%></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 
@@ -66,273 +73,115 @@
 
 <h1 class="alternate divide alternate-divide">Report Card</h1>
 
-<div id="report_card">
-  <div class="row"> 
-    <h1>Abesentee Data / <%= @partner.name %></h1>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Total Absences:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-    <div class="large-6 columns"> 
-        <div class="stat">
-          <h5 class="title">Total Absences:</h5>
-          <% abs = [] %>
-          <% @all_attendance.map do |x| %>
-          <% abs.insert(0, x.absences.to_i) %>
-          <% end %>
-          <%= abs.inject(0, :+) %>
-        </div>
-      </div>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Avg Per Student:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Avg Per Week:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
+<div class="row">
+  <div class="large-24 columns">
+    <table>
+      <thead>
+        <tr>
+          <th>Absentee Data</th>
+          <th width="150">Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Total number of absences</td>
+          <td>
+            <% abs = [] %>
+            <% @all_attendance.map do |x| %>
+            <% abs.insert(0, x.absences.to_i) %>
+            <% end %>
+            <%= abs.inject(0, :+) %>
+          </td>
+        </tr>
+        <tr>
+          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+          <td>75</td>
+        </tr>
+        <tr>
+          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+          <td>75</td>
+        </tr>
+        <tr>
+          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+          <td>75</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <br />
-  <div class="row"> 
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">% Asthma Related:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-    <div class="large-6 columns"> 
-        <div class="stat">
-          <h5 class="title">Most Absent Student:</h5>
-          <% abs = [] %>
-          <% @all_attendance.map do |x| %>
-          <% abs.insert(0, x.absences.to_i) %>
-          <% end %>
-          <%= abs.inject(0, :+) %>
-        </div>
-      </div>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Students Over 10:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Student With Fewest:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-  </div>
-  <br />
-  <hr />
-  <br />
-  <div class="row">
-    <h1>Reading Data / <%= @partner.name %></h1>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Total Hours Read:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-    <div class="large-6 columns"> 
-        <div class="stat">
-          <h5 class="title">Total Books Read:</h5>
-          <% abs = [] %>
-          <% @all_attendance.map do |x| %>
-          <% abs.insert(0, x.absences.to_i) %>
-          <% end %>
-          <%= abs.inject(0, :+) %>
-        </div>
-      </div>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Hours Per Student:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Hours Per Week:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-  </div>
-  <br />
-  <div class="row"> 
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">% Asthma Related:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-    <div class="large-6 columns"> 
-        <div class="stat">
-          <h5 class="title">Most Absent Student:</h5>
-          <% abs = [] %>
-          <% @all_attendance.map do |x| %>
-          <% abs.insert(0, x.absences.to_i) %>
-          <% end %>
-          <%= abs.inject(0, :+) %>
-        </div>
-      </div>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Students Over 10:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Student With Fewest:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-  </div>
-  <br />
-  <hr />
-  <br />
-  <div class="row">
-    <h1>Community Engagement / <%= @partner.name %></h1>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Total Absences:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-    <div class="large-6 columns"> 
-        <div class="stat">
-          <h5 class="title">Total Absences:</h5>
-          <% abs = [] %>
-          <% @all_attendance.map do |x| %>
-          <% abs.insert(0, x.absences.to_i) %>
-          <% end %>
-          <%= abs.inject(0, :+) %>
-        </div>
-      </div>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Avg Per Student:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Avg Per Week:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-  </div>
-  <br />
-  <div class="row"> 
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">% Asthma Related:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-    <div class="large-6 columns"> 
-        <div class="stat">
-          <h5 class="title">Most Absent Student:</h5>
-          <% abs = [] %>
-          <% @all_attendance.map do |x| %>
-          <% abs.insert(0, x.absences.to_i) %>
-          <% end %>
-          <%= abs.inject(0, :+) %>
-        </div>
-      </div>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Students Over 10:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-    <div class="large-6 columns"> 
-      <div class="stat">
-        <h5 class="title">Student With Fewest:</h5>
-        <% abs = [] %>
-        <% @all_attendance.map do |x| %>
-        <% abs.insert(0, x.absences.to_i) %>
-        <% end %>
-        <%= abs.inject(0, :+) %>
-      </div>
-    </div>
-  </div>
-  <br />
 </div>
+<div class="row">
+  <div class="large-24 columns">
+    <table>
+      <thead>
+        <tr>
+          <th>Absentee Data</th>
+          <th width="150">Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Total number of absences</td>
+          <td>
+            <% abs = [] %>
+            <% @all_attendance.map do |x| %>
+            <% abs.insert(0, x.absences.to_i) %>
+            <% end %>
+            <%= abs.inject(0, :+) %>
+          </td>
+        </tr>
+        <tr>
+          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+          <td>75</td>
+        </tr>
+        <tr>
+          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+          <td>75</td>
+        </tr>
+        <tr>
+          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+          <td>75</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="large-24 columns">
+    <table>
+      <thead>
+        <tr>
+          <th>Absentee Data</th>
+          <th width="150">Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Total number of absences</td>
+          <td>
+            <% abs = [] %>
+            <% @all_attendance.map do |x| %>
+            <% abs.insert(0, x.absences.to_i) %>
+            <% end %>
+            <%= abs.inject(0, :+) %>
+          </td>
+        </tr>
+        <tr>
+          <td>Average number of absences per student</td>
+          <td>75</td>
+        </tr>
+        <tr>
+          <td>Average number of absences per student per week</td>
+          <td>75</td>
+        </tr>
+        <tr>
+          <td>Percentage of absences that are asthma related</td>
+          <td>75</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 
 <h1 class="alternate divide alternate-divide">Neighborhood Served / <%= @partner.name %></h1>
 
@@ -346,18 +195,6 @@
 </body>
 </html>
 
-
-
-<!-- <div class="large-8 columns">
-        <div class="stat">
-          <h5 class="title">Total Hours Read:</h5>
-          <% thr = [] %>
-          <% @all_year_round_reader.map do |x| %>
-          <% thr.insert(0, x.hours_read.to_i) %>
-          <% end %>
-          <%= thr.inject(0, :+) %>
-        </div>
-      </div> -->
 
 
 
