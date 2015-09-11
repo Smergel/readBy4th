@@ -54,6 +54,15 @@
 </div>
 <% end %>
 
+
+<%= link_to "New User", new_user_registration_path %><br />
+
+<%= link_to "Sign In", new_user_session_path %><br />
+<% if !@user.nil? %>
+  <%= link_to (Partner.find(@user.partner_id).name), partner_path(@user.partner_id) %><br />
+  <%= @user.profile.first_name %>
+<% end %>
+
 <h1 class="divide alternate alternate-divide">Read! By 4th In The Media</h1>
 
 <div class="darkness">
@@ -136,6 +145,5 @@
   </div>
 </div>
 <br />
-
 
 
