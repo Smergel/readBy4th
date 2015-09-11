@@ -10,93 +10,49 @@
     </div>
 </div>
 
+<% if current_user.nil? %>
 <h1 class="divide alternate alternate-divide">Perspective Partner Information</h1>
 
 <div class="row">
-	<div class="large-12 columns">
-		<div class="row">
-			<div class="large-24 columns">
-				<h1>Become A Partner</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="call-to-action small-8 columns">
-			    <a href="#" target="_blank" aria-label="Submit a Request to 311" role="button">
-			    <span class="fa-stack fa-3x">
-			        <i class="fa fa-circle fa-stack-2x"></i>
-			        <i class="fa fa-stack-1x fa-inverse">
-			        	<span class="h6">Q&A</span>
-			    	</i>
-			    </span>
-			    <h2 class="h5">Frequently Asked Questions</h2>
-		    	<span class="accessible"> Opens in new window</span>
-				</a>
-			</div>
-			<div class="call-to-action small-8 columns">
-			    <a href="#" target="_blank" aria-label="Submit a Request to 311" role="button">
-			    <span class="fa-stack fa-3x">
-			        <i class="fa fa-circle fa-stack-2x"></i>
-			        <i class="fa fa-stack-1x fa-inverse">
-			        	<span class="h6">?</span>
-			    	</i>
-			    </span>
-			    <h2 class="h5">Contact Us</h2>
-		    	<span class="accessible"> Opens in new window</span>
-				</a>
-			</div>
-			<div class="call-to-action small-8 columns">
-			    <a href="#" target="_blank" aria-label="Submit a Request to 311" role="button">
-			    <span class="fa-stack fa-3x">
-			        <i class="fa fa-circle fa-stack-2x"></i>
-			        <i class="fa fa-stack-1x fa-inverse">
-			        	<span class="h6">?</span>
-			    	</i>
-			    </span>
-			    <h2 class="h5">Current Partners List</h2>
-		    	<span class="accessible"> Opens in new window</span>
-				</a>
-			</div>
-		</div>
-	</div>
-	<div class="large-12 columns">
-		<div class="technical-info">
-			<p>
-				<a href="#"><span class="title"><em>Grant Information</em></span>
-				<br />
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.
-				</a>
-			</p>
-			<p>
-				<a href="#"><span class="title"><em>Partner Obligations</em></span>
-				<br />
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.
-				</a>
-			</p>
-			<p>
-				<a href="#"><span class="title"><em>Recieving Money</em></span>
-				<br />
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.
-				</a>
-			</p>
-			<p>
-				<a href="#"><span class="title"><em>Community Outreach</em></span>
-				<br />
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.
-				</a>
-			</p>
-		</div>
+	<div class="small-24 columns center">
+		<h1>Join Us And Help Teach Philly To Read!</h1>
 	</div>
 </div>
+<div class="row">
+	<div class="large-8 columns center">
+		<i class="fa fa-book fa-5x"></i>
+		<h1>1. Register As A Partner</h1>
+		<p class="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+	</div>
+	<div class="large-8 columns center">
+		<i class="fa fa-bar-chart fa-5x"></i>
+		<h1>2. Record Your Progress</h1>
+		<p class="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+	</div>
+	<div class="large-8 columns center">
+		<i class="fa fa-check-circle-o fa-5x"></i>
+		<h1>3. Improve Your Community!</h1>
+		<p class="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-24 columns center">
+		<div class="button reg">Register As A Partner</div>
+	</div>
+</div>
+<% else %>
+<h1 class="divide alternate alternate-divide">News You Can Use</h1>
+
+<div class="row">
+	<div class="large-12 columns">
+	</div>
+	<div class="large-12 columns">
+	</div>
+</div>
+<% end %>
 
 
 <%= link_to "New User", new_user_registration_path %><br />
@@ -109,117 +65,85 @@
 
 <h1 class="divide alternate alternate-divide">Read! By 4th In The Media</h1>
 
-<div class="row">
-	<div class="large-8 columns">
-	 	<h1 class="media-title">Eagles! Volunteer Locally</h1>
-	 	<div class="picture"></div>
-	 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	 	</p>
- 	</div>
-    <div class="large-8 columns">
-	 	<h1 class="media-title">Read! Goes National</h1>
-	 	<div class="picture"></div>
-	 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	 	</p>
- 	</div>
- 	<div class="large-8 columns">
-	 	<h1 class="media-title">Philly Programs Begin</h1>
-	 	<div class="picture"></div>
-	 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	 	</p>
- 	</div>
+<div class="darkness">
+	<div class="row">
+		<div class="large-8 columns">
+			<fieldset class="padder">
+			 	<div class="picture"></div>
+			 	<h2 class="media-title">Eagles! Volunteer Locally</h2>
+			 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			 	consequat. Duis aute irure dolor in reprehenderit in voluptate .
+			 	</p>
+			</fieldset>
+	 	</div>
+	    <div class="large-8 columns">
+			<fieldset class="padder">
+			 	<div class="picture"></div>
+			 	<h2 class="media-title">Read! By 4th Summer Programs Begin</h2>
+			 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			 	consequat. Duis aute irure dolor in reprehenderit in voluptate .
+			 	</p>
+			</fieldset>
+	 	</div>
+	 	<div class="large-8 columns">
+			<fieldset class="padder">
+			 	<div class="picture"></div>
+			 	<h2 class="media-title">Branden Boykin Leads A Reading Group</h2>
+			 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			 	consequat. Duis aute irure dolor in reprehenderit in voluptate .
+			 	</p>
+			</fieldset>
+	 	</div>
+	</div>
 </div>
 
-<h1 class="divide alternate alternate-divide">Upcoming Partner Events</h1>
+<h1 class="divide alternate alternate-divide">Upcoming Partner Events</h1>	
 
-<div class="row"> 
-	<table role="grid" summary="A description of the table should go here for screenreaders.">
-	  <tbody>
-	    <tr>
-	      <th>2015-06-28</th>
-	      <td>YMCA</td>
-	      <td>A program ending group picnic that is open to the public.</td>
-	    </tr>
-	    <tr>
-	      <th>2015-06-26</th>
-	      <td>Eagles Youth Camp</td>
-	      <td>Participants of all ages get to visit with the Eagles at training camp.</td>
-	    </tr>
-	    <tr>
-	      <th>2015-06-24</th>
-	      <td>Branch Foundation</td>
-	      <td>Dr Suess read along in the park.</td>
-	    </tr>
-	    <tr>
-	      <th>2015-06-18</th>
-	      <td>Silly Joe Bob</td>
-	      <td>Meet the man who has all the money.</td>
-	    </tr>
-	    <tr>
-	      <th>2015-06-15</th>
-	      <td>Barnes Foundation</td>
-	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-	    </tr>
-	    <tr>
-	      <th>2015-06-11</th>
-	      <td>Community Outreach</td>
-	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-	    </tr>
-	    <tr>
-	      <th>2015-06-02</th>
-	      <td>P.S. 114 Summer Program</td>
-	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-	    </tr>
-	     <tr>
-	      <th>2015-05-28</th>
-	      <td>YMCA</td>
-	      <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-	    </tr>
-	    <tr>
-	      <th>2015-05-26</th>
-	      <td>Enter Sand Man</td>
-	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-	    </tr>
-	    <tr>
-	      <th>2015-05-24</th>
-	      <td>McOnly Grant</td>
-	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-	    </tr>
-	    <tr>
-	      <th>2015-05-18</th>
-	      <td>Read! By 4th</td>
-	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-	    </tr>
-	    <tr>
-	      <th>2015-05-15</th>
-	      <td>Princeton</td>
-	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-	    </tr>
-	    <tr>
-	      <th>2015-05-11</th>
-	      <td>Temple Owls</td>
-	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-	    </tr>
-	    <tr>
-	      <th>2015-05-02</th>
-	      <td>UPenn Youth</td>
-	      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-	    </tr>
-	  </tbody>
-	</table>
+<div class="row">
+  <div class="medium-24 columns">
+    <div class="event-box">
+      <div class="event-row">
+        <a href="#" target="_blank">
+          <div class="date-time">Monday, May  11 <br>
+          12:00 PM - 2:00 PM</div>
+        </a>
+          <div class="event-title">YMCA</div>
+          <div class="event-location">JFK Plaza, 1599 John F. Kennedy Boulevard</div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+      </div>
+       <div class="event-row">
+         <a href="#" target="_blank">
+          <div class="date-time">Wednesday, May 13 <br>
+          11:00 AM - 3:30 PM</div>
+        </a>
+          <div class="event-title">Reader's Fair</div>
+          <div class="event-location">Thomas Paine Plaza (MSB)</div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+      </div>
+      <div class="event-row">
+        <a href="#" target="_blank">
+          <div class="date-time">Friday, May 15 <br>
+          7:00 AM - 6:00 PM</div>
+        </a>
+          <div class="event-title">Fairmount Read-a-thon</div>
+          <div class="event-location">Schuylkill River; Kelly Drive</div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+
 
