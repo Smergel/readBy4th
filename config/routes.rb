@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :attendance_matters
   resources :year_round_readers
 
+  get 'users/select_partner' => 'users#select_partner'
+  post 'users/load_partner' => 'users#load_partner'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
