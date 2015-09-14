@@ -40,7 +40,9 @@
 </div>
 <div class="row">
 	<div class="small-24 columns center">
-		<div class="button reg">Register As A Partner</div>
+    <h2>New to Read by 4th?</h2>
+		<a href="/users/select_partner/" id="register-button"><div class="button reg">
+    Register as a User or Partner!</div></a>
 	</div>
 </div>
 <% else %>
@@ -54,11 +56,8 @@
 </div>
 <% end %>
 
-
-<%= link_to "New User", new_user_registration_path %><br />
-
-<%= link_to "Sign In", new_user_session_path %><br />
 <% if !@user.nil? %>
+
   <%= link_to (Partner.find(@user.partner_id).name), partner_path(@user.partner_id) %><br />
   <%= @user.profile.first_name %>
 <% end %>

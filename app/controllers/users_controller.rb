@@ -72,14 +72,20 @@ class UsersController < ApplicationController
   end
 
   def load_partner
-    @partner = params[:partner]
-    puts @partner  
-    redirect_to new_user_registration
+    # @partner = params[:partner]
+    # puts @partner  
+    redirect_to '/users/sign_up/'
   end
+
+  # def load_partner
+  #   @partner = params[:partner]
+  #   puts @partner  
+  #   redirect_to new_user_registration
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
+    def set_user  
       @user = User.find(params[:id])
     end
 

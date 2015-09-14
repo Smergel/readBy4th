@@ -1,9 +1,13 @@
-<h1>WTF</h1>
-
-<%= form_tag("load_partner", method: "post") do %>
-  <%= select_tag("partner", options_from_collection_for_select(@partners, "id", "name"), include_blank: "None") %>
-  <%= submit_tag("Select your Partner Orginization") %>
-<% end %>
-
-
-<li class="active"><%= link_to "New User", new_user_registration_path %></li>
+<div class="row">
+  <h1>Are you a New User?</h1>
+  <h2>First, select a partner orginization:</h2>
+    <%= form_tag("load_partner", method: "post") do %>
+      <%= select_tag("partner", options_from_collection_for_select(@partners, "id", "name"), include_blank: "None") %>
+      <%= submit_tag("Load Partner", :class => "button") %>
+    <% end %>
+  <br/> 
+  <br/>
+  <h1 class="alternate divide">Can't find your partner orginization?</h1>
+  <a href="/partners/new/" id="register-button"><div class="button">
+    Register a New Partner!</div></a>
+</div>
