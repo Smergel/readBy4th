@@ -46,6 +46,11 @@
 	</div>
 </div>
 <% else %>
+<% if !@user.nil? %>
+  <div class="row">
+    <h3>Welcome, <%= @user.profile.first_name %>, to the Read by 4th! portal <br/>Enter data for <%= link_to (Partner.find(@user.partner_id).name), partner_path(@user.partner_id) %></h3>
+  </div>
+<% end %>
 <h1 class="divide alternate alternate-divide">News You Can Use</h1>
 
 <div class="row">
@@ -54,12 +59,6 @@
 	<div class="large-12 columns">
 	</div>
 </div>
-<% end %>
-
-<% if !@user.nil? %>
-
-  <%= link_to (Partner.find(@user.partner_id).name), partner_path(@user.partner_id) %><br />
-  <%= @user.profile.first_name %>
 <% end %>
 
 <h1 class="divide alternate alternate-divide">Read! By 4th In The Media</h1>
