@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'home#index'
+  get 'partners/books_read' => 'partners/books_read'
 
   devise_for :users, controllers: { registrations: "registrations" }
   resources :posts
