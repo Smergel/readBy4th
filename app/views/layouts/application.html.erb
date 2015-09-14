@@ -15,18 +15,18 @@
 <body>
 
 <nav class="top-bar" data-topbar role="navigation">
-	<section class="top-bar-section">
-		<!-- <ul class="left">
-			<li class="active"><a href="#">
-				<img src="http://www.mayorsfundphila.org/wp-content/uploads/2015/07/Free-Library-of-Phila.png" /></a>
+	<section>
+		<ul class="left">
+			<li class="active">
+				<img class="flp" src="http://search.freelibrary.org/images/global/logoflp2.gif" />
 			</li>
-		</ul> -->
+		</ul>
 	</section>
 	<section class="top-bar-section">
 		<ul class="right">
 			<li class="active"><a href="/">Home</a></li>
 			<% if !current_user.nil? %>
-				<li class="active"><a href="#">PDF Report Card</a></li>
+				<li class="active"><%= link_to (Partner.find(@user.partner_id).name) + " Page", partner_path(@user.partner_id) %></li>
 				<li class="active"><%= link_to "Log Out", destroy_user_session_path, method: "DELETE" %></li>
 			<% else %>
 				<li class="active"><%= link_to "Sign In", new_user_session_path %></li>
