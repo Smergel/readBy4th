@@ -5,11 +5,13 @@ class PartnersController < ApplicationController
   # GET /partners.json
   def index
     @partners = Partner.all
+    @user = current_user
   end
 
   # GET /partners/1
   # GET /partners/1.json
   def show
+    @user = current_user
     @family_engagement = FamilyEngagement.new
     @year_round_readers = YearRoundReader.new
     @attendance_matter = AttendanceMatter.new

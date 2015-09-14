@@ -74,17 +74,6 @@
 }
 .full-width {
 	width: 150px;
-	float: left;
-	height: 100%;
-	/*background-color: #353535;*/
-	border-left: 2px solid #353535;
+	position: absolute;
 }
-.white {
-	color: white;
-}
-
-
-register-button
- 
- 
 

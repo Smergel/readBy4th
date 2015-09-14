@@ -26,7 +26,7 @@
 		<ul class="right">
 			<li class="active"><a href="/">Home</a></li>
 			<% if !current_user.nil? %>
-				<li class="active"><%= link_to (Partner.find(@user.partner_id).name) + " Page", partner_path(@user.partner_id) %></li>
+				<li class="active"><%= link_to (Partner.find(current_user.partner_id).name) + " Page", partner_path(current_user.partner_id) %></li>
 				<li class="active"><%= link_to "Log Out", destroy_user_session_path, method: "DELETE" %></li>
 			<% else %>
 				<li class="active"><%= link_to "Sign In", new_user_session_path %></li>
