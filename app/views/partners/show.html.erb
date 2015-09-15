@@ -118,15 +118,33 @@
           </td>
         </tr>
         <tr>
-          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+          <td>Average absences per student (Mean)</td>
+          <td>
+            <% abs = [] %>
+            <% @all_attendance.map do |x| %>
+            <% abs.insert(0, x.absences.to_i) %>
+            <% end %>
+            <%= (abs.inject(0, :+)) / (@students.length) %>
+          </td>
+        </tr>
+        <tr>
+          <td>Student with the most absences</td>
+          <td>
+            <% tardy_student = 0 %>
+            <% @students.each do |x| %>
+              <% if !x.attendance_matter.nil? && x.attendance_matter.absences.to_i > tardy_student %>
+                <% tardy_student = x.attendance_matter.absences %>
+              <% end %>
+            <% end %>
+            <%= tardy_student %>
+          </td>
+        </tr>
+        <tr>
+          <td>Students absent more than 10% of days</td>
           <td>75</td>
         </tr>
         <tr>
-          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-          <td>75</td>
-        </tr>
-        <tr>
-          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+          <td>Average absences per student per week</td>
           <td>75</td>
         </tr>
       </tbody>
@@ -138,7 +156,7 @@
     <table>
       <thead>
         <tr>
-          <th>Absentee Data</th>
+          <th>Reading Data</th>
           <th width="150">Data</th>
         </tr>
       </thead>
@@ -174,7 +192,7 @@
     <table>
       <thead>
         <tr>
-          <th>Absentee Data</th>
+          <th>Community Outreach Data</th>
           <th width="150">Data</th>
         </tr>
       </thead>
