@@ -30,7 +30,7 @@ class ProfilesController < ApplicationController
       @profile.user_id = current_user.id
       @profile.user_email = current_user.email
       if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+        format.html { redirect_to "/partners/#{current_user.partner_id}", notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new }
