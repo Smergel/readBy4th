@@ -9,7 +9,7 @@
   <div class="full-width">
     <ul class="side-nav">
       <li class="center white"><h3>Overall Data</h3></li>
-      <li><a href="#">Absentee</a></li>
+      <li><a href="/partners/absences">Absences</a></li>
       <li><a href="#">Community Outreach</a></li>
       <li><a href="#">Reading Hours</a></li>
       <li><a href="/partners/books_read">Books Read</a></li>
@@ -22,51 +22,52 @@
     </ul>
   </div>
 
-  <div class="row">
-    <div class="large-24 columns">
-      <div class="row">
-        <div class="large-18 columns">
-          <h1>Absentee Data</h1>
-          <div id='chart'></div>
-          <%= render_chart(@chart, 'chart') %>
-        </div>
-        <div class="large-6 columns">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="large-24 columns">
-          <table>
-            <thead>
-              <tr>
-                <th>Absentee Data</th>
-                <th width="150">Data</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Total number of absences</td>
-                <td>
-                  100
-                </td>
-              </tr>
-              <tr>
-                <td>Average number of absences per student</td>
-                <td>75</td>
-              </tr>
-              <tr>
-                <td>Average number of absences per student per week</td>
-                <td>75</td>
-              </tr>
-              <tr>
-                <td>Percentage of absences that are asthma related</td>
-                <td>75</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+  <p id="notice"><%= notice %></p>
+    <div class="row">
+      <div class="large-24 columns">
+        <h1>Read by 4th! partners</h1>
       </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="large-24 columns">
+        <table>
+          <thead>
+            <tr>
+              <th>Partner Program</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Website</th>
+              <th colspan="1"></th>
+              <th>Edit Partner</th>
+              <th>Delete Partner</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @partners.each do |partner| %>
+              <tr>
+                <td><%= link_to partner.name, partner %></td>
+                <td><%= link_to partner.email %></td>
+                <td><%= partner.phone %></td>
+                <td><%= partner.website %></td>
+                <td></td>
+                <td><%= link_to 'Edit', edit_partner_path(partner) %></td>
+                <td><%= link_to 'Delete', partner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to 'Manually Create a New Partner', new_partner_path %>
+      </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 </body>
 </html>

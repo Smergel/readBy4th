@@ -1,0 +1,72 @@
+<html>
+<head>
+  
+</head>
+
+<body>
+  <h1 class="alternate divide alternate-divide">Free Library Administrative Page</h1>
+
+  <div class="full-width">
+    <ul class="side-nav">
+      <li class="center white"><h3>Overall Data</h3></li>
+      <li><a href="/partners/absences">Absences</a></li>
+      <li><a href="#">Community Outreach</a></li>
+      <li><a href="#">Reading Hours</a></li>
+      <li><a href="/partners/books_read">Books Read</a></li>
+      <li class="divider"></li>
+      <li class="center"><h3>Individual Partners</h3></li>
+      <li><a href="#">Absentee</a></li>
+      <li><a href="#">Community Outreach</a></li>
+      <li><a href="#">Reading Hours</a></li>
+      <li><a href="#">Books Read</a></li>
+    </ul>
+  </div>
+
+  <div class="row">
+    <div class="large-24 columns">
+      <div class="row">
+        <div class="large-18 columns">
+          <h1>Absentee Data</h1>
+          <div id='chart'></div>
+          <%= render_chart(@chart, 'chart') %>
+        </div>
+        <div class="large-6 columns">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-24 columns">
+          <table>
+            <thead>
+              <tr>
+                <th>Absentee Data</th>
+                <th width="150">Data</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Total number of absences</td>
+                <td>
+                  100
+                </td>
+              </tr>
+              <tr>
+                <td>Average number of absences per student</td>
+                <td>75</td>
+              </tr>
+              <tr>
+                <td>Average number of absences per student per week</td>
+                <td>75</td>
+              </tr>
+              <tr>
+                <td>Percentage of absences that are asthma related</td>
+                <td>75</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

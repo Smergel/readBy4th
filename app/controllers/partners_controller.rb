@@ -6,6 +6,11 @@ class PartnersController < ApplicationController
   def index
     @partners = Partner.all
     @user = current_user
+  end
+
+  def absences
+    @partners = Partner.all
+    @user = current_user
 
     @absences = AttendanceMatter.all
     @data_var = []
@@ -34,7 +39,6 @@ class PartnersController < ApplicationController
     )
     option = { title: 'Total Absences vs. Absences Per Student' }
     @chart = GoogleVisualr::Interactive::BarChart.new(data_table, option)
-
   end
 
   # GET /partners/1
@@ -49,6 +53,7 @@ class PartnersController < ApplicationController
     @all_year_round_reader = YearRoundReader.where(partner_id: @partner.id)
 
     @students = Participant.where(student: true, partner_id: @partner.id)
+    @participants = Participant.all
   end
 
   # GET /partners/new

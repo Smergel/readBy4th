@@ -171,7 +171,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   foreman
-  google_visualr
+  google_visualr (~> 2.5.1)
   jbuilder (~> 2.0)
   jquery-rails
   paperclip (~> 4.2)
