@@ -13,6 +13,8 @@ class PartnersController < ApplicationController
     @user = current_user
 
     @absences = AttendanceMatter.all
+    
+    # Chart 1, Bar Chart for Absences
     @data_var = []
     @absences.each do |x|
       if (@data_var != []) && (@data_var.any? { |y| y[0] == (Partner.find(x.partner_id).name) }) 
@@ -28,17 +30,26 @@ class PartnersController < ApplicationController
     end
 
     data_table = GoogleVisualr::DataTable.new
-    # Add Column Headers
     data_table.new_column('string', 'Partner' )
     data_table.new_column('number', 'Absences')
-    data_table.new_column('number', 'Absences / Student')
-
-    # Add Rows and Values
+    data_table.new_column('number', 'Absences Per Student')
     data_table.add_rows(
         @data_var
     )
     option = { title: 'Total Absences vs. Absences Per Student' }
     @chart = GoogleVisualr::Interactive::BarChart.new(data_table, option)
+
+    #Chart 2, Pie Chart for Asthma
+    data_table2 = GoogleVisualr::DataTable.new
+    data_table2.new_column('string', 'Partner' )
+    data_table2.new_column('number', 'Absences')
+    data_table2.add_rows([
+        ['Absences', 150],
+        ['Asthma Related Absences', 35]
+    ])
+    option = { title: 'Percent of Asthma Related Absences' }
+    @chart2 = GoogleVisualr::Interactive::PieChart.new(data_table2, option)
+
   end
 
   # GET /partners/1
