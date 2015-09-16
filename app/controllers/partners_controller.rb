@@ -6,6 +6,35 @@ class PartnersController < ApplicationController
   def index
     @partners = Partner.all
     @user = current_user
+
+    @absences = AttendanceMatter.all
+    @data_var = []
+    @absences.each do |x|
+      if (@data_var != []) && (@data_var.any? { |y| y[0] == (Partner.find(x.partner_id).name) }) 
+        @data_var.each do |z|
+          if z[0] == (Partner.find(x.partner_id).name)
+            z[1] = z[1] + x.absences.to_i
+            z[2] = z[1] / (Participant.where(student: true, partner_id: x.partner_id).length)
+          end
+        end
+      else
+        @data_var << [Partner.find(x.partner_id).name, x.absences, (x.absences / (Participant.where(student: true, partner_id: x.partner_id)).length)]
+      end
+    end
+
+    data_table = GoogleVisualr::DataTable.new
+    # Add Column Headers
+    data_table.new_column('string', 'Partner' )
+    data_table.new_column('number', 'Absences')
+    data_table.new_column('number', 'Absences / Student')
+
+    # Add Rows and Values
+    data_table.add_rows(
+        @data_var
+    )
+    option = { title: 'Total Absences vs. Absences Per Student' }
+    @chart = GoogleVisualr::Interactive::BarChart.new(data_table, option)
+
   end
 
   # GET /partners/1

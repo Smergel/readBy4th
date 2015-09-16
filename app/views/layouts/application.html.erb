@@ -11,9 +11,9 @@
 	<script type='text/javascript' src='//cityofphiladelphia. github.io/patterns/dist/0.10.1/js/patterns.min.js'></script>
 	<link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js?ver=2.8.3'></script>
+  <script src='https://www.google.com/jsapi'></script>
 </head>
 <body>
-
 <nav class="top-bar" data-topbar role="navigation">
 	<section>
 		<ul class="left">
@@ -26,7 +26,8 @@
 		<ul class="right">
 			<li class="active"><a href="/">Home</a></li>
 			<% if !current_user.nil? %>
-				<li class="active"><%= link_to (Partner.find(current_user.partner_id).name) + " Page", partner_path(current_user.partner_id) %></li>
+				<li class="active"><%= link_to "FLP Admins", partners_path %></li>
+        <li class="active"><%= link_to (Partner.find(current_user.partner_id).name) + " Page", partner_path(current_user.partner_id) %></li>
 				<li class="active"><%= link_to "Log Out", destroy_user_session_path, method: "DELETE" %></li>
 			<% else %>
 				<li class="active"><%= link_to "Sign In", new_user_session_path %></li>
