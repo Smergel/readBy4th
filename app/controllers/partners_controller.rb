@@ -6,6 +6,11 @@ class PartnersController < ApplicationController
   def index
     @partners = Partner.all
     @user = current_user
+  end
+
+  def absences
+    @partners = Partner.all
+    @user = current_user
 
     @absences = AttendanceMatter.all
     
@@ -59,6 +64,7 @@ class PartnersController < ApplicationController
     @all_year_round_reader = YearRoundReader.where(partner_id: @partner.id)
 
     @students = Participant.where(student: true, partner_id: @partner.id)
+    @participants = Participant.all
   end
 
   # GET /partners/new

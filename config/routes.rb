@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'partners/books_read' => 'partners/books_read'
+  get 'partners/absences' => 'partners#absences'
 
   devise_for :users, controllers: { registrations: "registrations" }
   resources :posts
