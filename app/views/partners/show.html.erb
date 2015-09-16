@@ -124,7 +124,7 @@
             <% @all_attendance.map do |x| %>
             <% abs.insert(0, x.absences.to_i) %>
             <% end %>
-            <%= (abs.inject(0, :+)) / (@students.length) %>
+            <%= (abs.inject(0, :+)) / @students.length %>
           </td>
         </tr>
         <tr>
