@@ -2,3 +2,11 @@
   <%= select(:partner, "partner_id", Partner.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %>
   <%= submit_tag("Select your Partner Orginization") %>
 <% end %>
+
+
+
+       <div id='chart2'></div>
+          <%= render_chart(@chart2, 'chart2') %>
+          </div>
+          <div class="large-6 columns">
+       </div>
