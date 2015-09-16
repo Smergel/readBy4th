@@ -33,7 +33,6 @@
       <li><%= link_to "Upload Student CSV", '/', class: "button" %></li>
       <li><%= link_to "Absentee Data PDF", '/', class: "button" %></li>
     </ul>
-    
     <table>
       <thead>
         <tr>
@@ -125,7 +124,7 @@
             <% abs.insert(0, x.absences.to_i) %>
             <% end %>
             <% if @students.nil? %>
-              <%= (abs.inject(0, :+)) / @students.length %>
+              <%= (abs.inject(0, :+)) / (@students.length.nil? ? 1 : @students.length) %>
             <% end %>
           </td>
         </tr>

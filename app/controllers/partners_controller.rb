@@ -83,7 +83,7 @@ class PartnersController < ApplicationController
 
     respond_to do |format|
       if @partner.save
-        format.html { redirect_to @partner, notice: 'Partner was successfully created.' }
+        format.html { redirect_to '/users/sign_up', notice: 'Partner was successfully created.' }
         format.json { render :show, status: :created, location: @partner }
       else
         format.html { render :new }
