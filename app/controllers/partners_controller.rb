@@ -14,6 +14,7 @@ class PartnersController < ApplicationController
         @data_var.each do |z|
           if z[0] == (Partner.find(x.partner_id).name)
             z[1] = z[1] + x.absences.to_i
+            z[2] = z[1] / (Participant.where(student: true, partner_id: x.partner_id).length)
           end
         end
       else
