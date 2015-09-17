@@ -8,6 +8,10 @@ class PartnersController < ApplicationController
     @user = current_user
   end
 
+  def report 
+    
+  end
+
   def absences
     @partners = Partner.all
     @user = current_user

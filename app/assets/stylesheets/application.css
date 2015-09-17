@@ -76,4 +76,7 @@
 	width: 150px;
 	position: absolute;
 }
+.min-height {
+	min-height: 1000px;
+}
 

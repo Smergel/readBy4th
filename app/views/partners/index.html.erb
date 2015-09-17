@@ -28,7 +28,7 @@
         <h1>Read by 4th! partners</h1>
       </div>
     </div>
-    <div class="row">
+    <div class="row min-height">
       <div class="large-24 columns">
         <table>
           <thead>
@@ -57,17 +57,9 @@
             <% end %>
           </tbody>
         </table>
-        <%= link_to 'Manually Create a New Partner', new_partner_path %>
+        <%= link_to 'Manually Create a New Partner', new_partner_path, class: "button" %><br />
+        <%= link_to 'Generate A Report To Print', '/report', class: "button" %>
       </div>
     </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
 </body>
 </html>
