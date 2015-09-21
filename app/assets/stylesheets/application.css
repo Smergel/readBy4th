@@ -15,8 +15,9 @@
  */
 
 .flp {
-	width: 65px;
-	height: 35px;
+	/*float: left;*/
+	width: 85px;
+	/*height: 35px;*/
 }
  .logo {
  	width: 100px;
@@ -75,5 +76,18 @@
 .full-width {
 	width: 150px;
 	position: absolute;
+}
+
+.logo-bar {
+	width: 700px;
+}
+
+.logo-bar h1 {
+	padding: 0px;
+	font-size: 2.2em;
+}
+
+.main-logo-word {
+	display: inline-block;
 }
 
