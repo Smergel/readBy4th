@@ -94,6 +94,23 @@
 	display: inline-block;
 }
 
-.log-in-form {
-	height: ;
+#log-in-form {
+	height: 800px;
+}
+
+#sign-up-form {
+	height: 800px;
+}
+
+.new_user {
+	height: 1000px;
+}
+
+.new_profile {
+	height: 1000px;
+}
+
+footer {
+	bottom: 0;
+	width: 100%;
 }
