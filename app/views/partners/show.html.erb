@@ -163,26 +163,38 @@
       </thead>
       <tbody>
         <tr>
-          <td>Total number of absences</td>
+          <td>Total Hours Read</td>
           <td>
-            <% abs = [] %>
-            <% @all_attendance.map do |x| %>
-            <% abs.insert(0, x.absences.to_i) %>
-            <% end %>
-            <%= abs.inject(0, :+) %>
+            645
           </td>
         </tr>
         <tr>
-          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-          <td>75</td>
+          <td>Hours Read Per Student</td>
+          <td>35</td>
         </tr>
         <tr>
-          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-          <td>75</td>
+          <td>Hours Of Reading Instruction</td>
+          <td>125</td>
         </tr>
         <tr>
-          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-          <td>75</td>
+          <td>Hours Reading Instruction Per Student</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Hours Listening To Reading Aloud</td>
+          <td>310</td>
+        </tr>
+        <tr>
+          <td>Hours Listening To Reading Aloud Per Student</td>
+          <td>25</td>
+        </tr>
+        <tr>
+          <td>Books Read Per Student</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>Books Loaned Per Student</td>
+          <td>9</td>
         </tr>
       </tbody>
     </table>
@@ -199,41 +211,25 @@
       </thead>
       <tbody>
         <tr>
-          <td>Total number of absences</td>
-          <td>
-            <% abs = [] %>
-            <% @all_attendance.map do |x| %>
-            <% abs.insert(0, x.absences.to_i) %>
-            <% end %>
-            <%= abs.inject(0, :+) %>
-          </td>
+          <td>Total Tweets</td>
+          <td>125</td>
         </tr>
         <tr>
-          <td>Average number of absences per student</td>
-          <td>75</td>
+          <td>Total Facebook Messages</td>
+          <td>83</td>
         </tr>
         <tr>
-          <td>Average number of absences per student per week</td>
-          <td>75</td>
+          <td>Total Instagrams</td>
+          <td>24</td>
         </tr>
         <tr>
-          <td>Percentage of absences that are asthma related</td>
-          <td>75</td>
+          <td>Total Physical Outreaches</td>
+          <td>4</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
-
-<h1 class="alternate divide alternate-divide">Neighborhood Served / <%= @partner.name %></h1>
-
-<div class="row" id="partners-map">
-  <div class="large-24 columns">
-    <img src="http://static5.businessinsider.com/image/51d34ba269bedd4034000006-1200-706/screen%20shot%202013-07-02%20at%205.51.40%20pm.png" />
-  </div>
-</div>
-  <br />
 
 </body>
 </html>

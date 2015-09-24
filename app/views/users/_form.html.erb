@@ -1,4 +1,3 @@
-asdfljalksfj
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -25,6 +24,6 @@ asdfljalksfj
     <%= f.number_field :partner_id %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :Submit, class: "button" %>
   </div>
 <% end %>

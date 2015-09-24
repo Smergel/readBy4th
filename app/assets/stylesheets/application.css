@@ -77,10 +77,6 @@
 	width: 150px;
 	position: absolute;
 }
-.min-height {
-	min-height: 1000px;
-}
-
 .logo-bar {
 	width: 700px;
 }
@@ -95,26 +91,27 @@
 }
 
 #log-in-form {
-	height: 800px;
+	height: 500px;
 }
 
 #sign-up-form {
-	height: 800px;
+	height: 500px;
 }
 
 .new_user {
-	height: 1000px;
+	/*height: 1000px;*/
 }
 
 .new_profile {
-	height: 1000px;
+	/*height: 1000px;*/
 }
 
 footer {
-	bottom: 0;
+	/*bottom: 0;*/
+	max-height: 0px;
 	width: 100%;
 }
 
 #partners-map {
-	height: 900px;
+	/*height: 900px;*/
 }

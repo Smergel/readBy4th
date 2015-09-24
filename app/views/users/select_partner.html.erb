@@ -1,13 +1,15 @@
 <div class="row" id="sign-up-form">
-  <h1>Are you a New User?</h1>
-  <h2>First, select a partner orginization:</h2>
-    <%= form_tag("load_partner", method: "post") do %>
-      <%= select_tag("partner", options_from_collection_for_select(@partners, "id", "name"), include_blank: "None") %>
-      <%= submit_tag("Load Partner", :class => "button") %>
-    <% end %>
-  <br/> 
-  <br/>
-  <h1 class="alternate divide">Can't find your partner orginization?</h1>
-  <a href="/partners/new/" id="register-button"><div class="button">
-    Register a New Partner!</div></a>
+    <div class="large-24 columns">
+    <h1>Are you a New User?</h1>
+    <h2>First, select a partner orginization:</h2>
+      <%= form_tag("load_partner", method: "post") do %>
+        <%= select_tag("partner", options_from_collection_for_select(@partners, "id", "name"), include_blank: "None") %>
+        <%= submit_tag("Load Partner", :class => "button") %>
+      <% end %>
+    <br/> 
+    <br/>
+    <h1 class="alternate divide">Can't find your partner orginization?</h1>
+    <a href="/partners/new/" id="register-button"><div class="button">
+      Register a New Partner!</div></a>
+    </div>
 </div>

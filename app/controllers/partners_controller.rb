@@ -8,8 +8,16 @@ class PartnersController < ApplicationController
     @user = current_user
   end
 
-  def report 
-    
+  def pdf
+    @partners = Partner.all
+  end
+
+  def books_read 
+    @partners = Partner.all
+  end
+
+  def neighborhood_served
+    @partners = Partner.all
   end
 
   def absences

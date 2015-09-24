@@ -1,32 +1,25 @@
 <h1 class="alternate divide alternate-divide">Free Library Administrative Page</h1>
 
 <div class="full-width">
-  <ul class="side-nav">
-    <li class="center white"><h3>Overall Data</h3></li>
-    <li><a href="/partners/absences">Absences</a></li>
-    <li><a href="#">Community Outreach</a></li>
-    <li><a href="#">Reading Hours</a></li>
-    <li><a href="#">Books Read</a></li>
-    <li class="divider"></li>
-    <li class="center white"><h3>Individual Partners</h3></li>
-    <li><a href="#">Absences</a></li>
-    <li><a href="#">Community Outreach</a></li>
-    <li><a href="#">Reading Hours</a></li>
-    <li><a href="#">Books Read</a></li>
-    <li class="divider"></li>
-    <li class="center white"><h3>PDF Format Data</h3></li>
-    <li><a href="#">Absentee</a></li>
-    <li><a href="#">Community Outreach</a></li>
-    <li><a href="#">Reading Hours</a></li>
-    <li><a href="#">Books Read</a></li>
-  </ul>
-</div>
+    <ul class="side-nav">
+      <li class="center white"><h3>Overall Data</h3></li>
+      <li><a href="/partners">All Partners</a></li>
+      <li><a href="/partners/absences">Absences</a></li>
+      <li><a href="/partners/neighborhood_served">Neighborhoods Served</a></li>
+      <li><a href="#">Community Outreach</a></li>
+      <li><a href="#">Reading Hours</a></li>
+      <li><a href="/partners/books_read">Books Read</a></li>
+    </ul>
+  </div>
 
 <div class="row">
   <div class="large-24 columns">
     <div class="row">
       <div class="large-18 columns">
         <h1>Books Read</h1>
+        <%= form_tag("load_partner", method: "post") do %>
+          <%= select_tag("partner", options_from_collection_for_select(@partners, "id", "name"), include_blank: "All Partners") %>
+        <% end %>
         <img height="500px" src="https://www.drupal.org/files/issues/Line%20graph%20-%20Highcharts%20Library.png" />
       </div>
       <div class="large-6 columns">
