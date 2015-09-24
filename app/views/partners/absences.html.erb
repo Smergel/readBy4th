@@ -22,15 +22,29 @@
     </ul>
   </div>
 
-  <div class="row">
+  <div class="row min-height">
     <div class="large-24 columns">
       <div class="row">
-        <div class="large-18 columns">
+        <div class="large-24 columns">
           <h1>Absentee Data</h1>
           <div id='chart'></div>
           <%= render_chart(@chart, 'chart') %>
         </div>
+      </div>
+      <div class="row">
         <div class="large-6 columns">
+          <div id="chart2"></div>
+          <%= render_chart(@chart2, 'chart2') %>
+        </div>
+        <div class="large-6 columns">
+          <div id="chart3"></div>
+          <%= render_chart(@chart3, 'chart3') %>
+        </div>
+        <div class="large-6 columns">
+          
+        </div>
+        <div class="large-6 columns">
+          
         </div>
       </div>
 

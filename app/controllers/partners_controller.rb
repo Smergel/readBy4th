@@ -43,16 +43,50 @@ class PartnersController < ApplicationController
     option = { title: 'Total Absences vs. Absences Per Student' }
     @chart = GoogleVisualr::Interactive::BarChart.new(data_table, option)
 
+    #Chart 2 Data Generation
+    @overall_absences = ['Total Absences', 1]
+    @absences.each do |x|
+      @overall_absences[1] = @overall_absences[1] + x.absences.to_i
+    end
+    @asthma_percentage = ['Asthma Related Absences', 1]
+    @absences.each do |y|
+      @asthma_percentage[1] = @asthma_percentage[1] + (y.asthma == true ? y.absences.to_i : 0)
+    end
     #Chart 2, Pie Chart for Asthma
     data_table2 = GoogleVisualr::DataTable.new
     data_table2.new_column('string', 'Partner' )
     data_table2.new_column('number', 'Absences')
     data_table2.add_rows([
-        ['Absences', 150],
-        ['Asthma Related Absences', 35]
+      @overall_absences,
+      @asthma_percentage
     ])
     option = { title: 'Percent of Asthma Related Absences' }
     @chart2 = GoogleVisualr::Interactive::PieChart.new(data_table2, option)
+
+    #Chart 3 Data Generation
+    @overall_absences2 = ['Total Absences', 1]
+    @absences.each do |x|
+      @overall_absences2[1] = @overall_absences2[1] + x.absences.to_i
+    end
+    @top_20 = ['Top 20% Of Students By Absences', 1]
+    @bad_students = []
+    @absences.each do |y|
+      @bad_students << y.absences.to_i
+      @twenty = @bad_students.length * 0.2
+    end
+    @bad_students.sort.reverse.first(@twenty).each do |z|
+      @top_20[1] = @top_20[1] + z
+    end
+    #Chart 3, Pie Chart for Top 20%
+    data_table3 = GoogleVisualr::DataTable.new
+    data_table3.new_column('string', 'Partner' )
+    data_table3.new_column('number', 'Absences')
+    data_table3.add_rows([
+      @overall_absences2,
+      @top_20
+    ])
+    option = { title: '20% Of Students Generate X% Of Total Absences' }
+    @chart3 = GoogleVisualr::Interactive::PieChart.new(data_table3, option)
 
   end
 
