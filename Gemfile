@@ -36,6 +36,7 @@ gem 'paperclip', "~> 4.2"
 # gem 'capistrano-rails', group: :development
 
 group :production do
+  gem 'passenger'
   gem 'pg'
 end
 

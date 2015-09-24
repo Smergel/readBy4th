@@ -15,8 +15,9 @@
  */
 
 .flp {
-	width: 65px;
-	height: 35px;
+	/*float: left;*/
+	width: 85px;
+	/*height: 35px;*/
 }
  .logo {
  	width: 100px;
@@ -80,3 +81,40 @@
 	min-height: 1000px;
 }
 
+.logo-bar {
+	width: 700px;
+}
+
+.logo-bar h1 {
+	padding: 0px;
+	font-size: 2.2em;
+}
+
+.main-logo-word {
+	display: inline-block;
+}
+
+#log-in-form {
+	height: 800px;
+}
+
+#sign-up-form {
+	height: 800px;
+}
+
+.new_user {
+	height: 1000px;
+}
+
+.new_profile {
+	height: 1000px;
+}
+
+footer {
+	bottom: 0;
+	width: 100%;
+}
+
+#partners-map {
+	height: 900px;
+}
