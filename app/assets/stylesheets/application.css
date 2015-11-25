@@ -131,22 +131,26 @@ footer {
 }
 .slick-list {
 	width: 80%;
-	margin: 0 10% !important;
+	margin: 15px 10% !important;
+	display: inline-block;
 }
 .slick-arrow{
-	width: 92px;
+	width: 7em;
 }
 .slick-prev {
 	top: 38%;
-	left: 15px;
+	left: 0;
 	position: absolute;
 
 }
 .slick-next {
 	position: absolute;
 	top: 38%;
-	right: 15px;
+	right: 0;
 }
 .photo {
 	margin: 0 5px;
+}
+.events {
+	margin-top: 15px;
 }
