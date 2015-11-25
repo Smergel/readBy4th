@@ -34,6 +34,7 @@ gem 'paperclip', "~> 4.2"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'jquery-slick-rails'
 
 group :production do
   gem 'passenger'
