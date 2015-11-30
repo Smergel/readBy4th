@@ -14,6 +14,17 @@
  *= require_self
  */
 
+.big-bold {
+	font-weight: 800;
+	font-size: 2em;
+	display: inline-block;
+}
+.small-bold {
+	font-weight: 600;
+	font-size: 1.5em;
+	display: inline-block;
+	padding-left: 20px;
+}
 .flp {
 	/*float: left;*/
 	width: 85px;
@@ -63,7 +74,7 @@
 	text-align: justify;
 }
 .reg {
-	width: 500px;
+	width: 400px;
 }
 .padder {
 	padding: 20px;
