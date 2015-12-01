@@ -19,10 +19,26 @@
  	height: 60px;
  }
 
+.cata {
+	width: 600px;
+	height: 80px; 
+}
 .big-bold {
 	font-weight: 800;
 	font-size: 2em;
 	display: inline-block;
+}
+.center {
+	text-align: center;
+}
+.nav2 {
+	text-align: center;
+}
+.nav2 a:after {
+	content: " | ";
+}
+.nav2 a:before {
+	content: " | ";
 }
 .small-bold {
 	font-weight: 600;

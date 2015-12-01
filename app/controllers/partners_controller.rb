@@ -8,7 +8,7 @@ class PartnersController < ApplicationController
     @user = current_user
   end
 
-  def pdf
+  def parents
     @partners = Partner.all
   end
 
@@ -16,7 +16,7 @@ class PartnersController < ApplicationController
     @partners = Partner.all
   end
 
-  def neighborhood_served
+  def community_leaders
     @partners = Partner.all
   end
 

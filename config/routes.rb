@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'partners/books_read' => 'partners/books_read'
   get 'partners/absences' => 'partners#absences'
   get '/report' => 'partners#report'
-  get 'partners/neighborhood_served' => 'partners#neighborhood_served'
-  get '/partners/pdf' => 'partners#pdf'
+  get 'partners/community_leaders' => 'partners#community_leaders'
+  get '/partners/parents' => 'partners#parents'
 
   devise_for :users, controllers: { registrations: "registrations" }
   resources :posts
