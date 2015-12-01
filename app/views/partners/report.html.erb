@@ -1,28 +1,44 @@
-
-<h1 class="alternate divide alternate-divide">Generate A Report</h1>
-<div class="row">
+<div class="row center">
+	<div class="nav2 large-24 columns">
+		<%= link_to "Partners", partners_path %>
+		<%= link_to "Community Leaders", "/partners/community_leaders" %>
+		<%= link_to "Parents", "/partners/parents" %>
+		<%= link_to "Reading Stats", "/report" %>
+		<%= link_to "Recent Messages" %>
+		<%= link_to "Events" %>
+	</div>
+</div> 
+<div class="row pad">
+	<div class="large-24 columns">
+		<table>
+			<thead>
+				<tr>
+					<th>Catagory</th>
+					<th>Stats</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Total Number Of Parents In The Program</td>
+					<td>113</td>
+				</tr>
+				<tr>
+					<td>Total Number Of Partners In The Program</td>
+					<td>56</td>
+				</tr>
+				<tr>
+					<td>Total Number Of Community Leaders In The Program</td>
+					<td>32</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="row center pad">
 	<div class="large-12 columns">
-		<%= render 'report' %>
+		<img src="/assets/lineChart.png" />
 	</div>
 	<div class="large-12 columns">
-		<h1>Generating Reports</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<img src="/assets/PieChartGoogle.jpg" />
 	</div>
 </div>

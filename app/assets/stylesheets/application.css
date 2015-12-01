@@ -13,20 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
 .cata {
 	width: 600px;
-	height: 50px; 
-}
-.cata-left {
-	float: left;
-}
-.cata-right {
-	float: right;
+	height: 80px; 
 }
 .big-bold {
 	font-weight: 800;
 	font-size: 2em;
 	display: inline-block;
+}
+.center {
+	text-align: center;
+}
+.nav2 {
+	text-align: center;
+}
+.nav2 a:after {
+	content: " | ";
+}
+.nav2 a:before {
+	content: " | ";
 }
 .small-bold {
 	font-weight: 600;
