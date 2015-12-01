@@ -14,6 +14,11 @@
  *= require_self
  */
 
+ .social_media{
+ 	width: 60px;
+ 	height: 60px;
+ }
+
 .big-bold {
 	font-weight: 800;
 	font-size: 2em;
