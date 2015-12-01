@@ -6,7 +6,7 @@
 <!-- <h1>Page That Partners See When They Log In</h1> -->
 <p id="notice"><%= notice %></p>
 
-<h1 class="alternate divide alternate-divide"><%= @partner.name %> Quick Information</h1>
+<h1 class="alternate divide alternate-divide"></h1>
 
 <div class="row">
   <div class="large-5 columns">
@@ -27,209 +27,68 @@
     </div>
   </div>
   <div class="large-19 columns">
-    <h1>Roll Call / Books Completed</h1>
-    <ul class="inline-list">
-      <li><%= link_to "Add Participant", new_participant_path, class: "button" %></li>
-      <li><%= link_to "Upload Student CSV", '/', class: "button" %></li>
-      <li><%= link_to "Absentee Data PDF", '/', class: "button" %></li>
-    </ul>
-    <table>
-      <thead>
-        <tr>
-          <th width="200">Name</th>
-          <th># Days Absent</th>
-          <th>Asthma Related?</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @students.each do |x| %>
-          <tr>
-            <td><%= x.last_name + ", " + x.first_name %></td>
-            <%= form_for(@attendance_matter) do |f| %>
-              <%= f.hidden_field :participant_id, value: x.id %>
-              <td width="100"><%= f.number_field :absences, placeholder: "# Of Absences" %></td>
-              <td width="100"><%= f.check_box :asthma %></td>
-              <td width="100"><%= f.submit :Submit, class: "submit"%></td>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <h1>Mission Statement</h1>
+
+    <div class="mission-statement">
+      <p>Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+
+      <p>Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+
+      <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Donec sed odio dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est at lobortis. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum.</p>
+    </div>
+  
   </div>
 </div>
 
-<h1 class="alternate divide alternate-divide">Enter Data</h1>
-
+<h1 class="alternate divide alternate-divide"></h1>
 <div class="row">
-  <div class="large-12 columns">
-    <%= render "family_engagement" %>
-  </div>
-  <div class="large-12 columns">
-    <h1>Family Engagement</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+  <div class="large-24 columns">
+    <div class="photo-slider">
+      <div class="photo"><img src="https://libwww.freelibrary.org/images/kids/homework.jpg" alt=""></div>
+      <div class="photo"><img src="https://libwww.freelibrary.org/images/kids/homework.jpg" alt=""></div>
+      <div class="photo"><img src="https://libwww.freelibrary.org/images/kids/homework.jpg" alt=""></div>
+      <div class="photo"><img src="https://libwww.freelibrary.org/images/kids/homework.jpg" alt=""></div>
+      <div class="photo"><img src="https://libwww.freelibrary.org/images/kids/homework.jpg" alt=""></div>
+    </div>
   </div>
 </div>
-<div class="row">
-  <div class="large-12 columns">
-    <%= render "year_round_readers" %>
-  </div>
-  <div class="large-12 columns">
-    <h1>Year Round Readers</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-  </div>
-</div>
-
-<h1 class="alternate divide alternate-divide">Report Card</h1>
+<h1 class="alternate divide alternate-divide"></h1>
 
 <div class="row">
   <div class="large-24 columns">
-    <table>
+    <table class="events">
       <thead>
         <tr>
-          <th>Absentee Data</th>
-          <th width="150">Data</th>
+          <th width="200">Date/Time</th>
+          <th>Event</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Total number of absences</td>
+          <td>1/6/2015 12:00PM</td>
           <td>
-            <% abs = [] %>
-            <% @all_attendance.map do |x| %>
-            <% abs.insert(0, x.absences.to_i) %>
-            <% end %>
-            <%= abs.inject(0, :+) %>
+           Storytime event in Rm. 300.
+          </td>
+        </tr>
+         <tr>
+          <td>12/12/2015 6:00PM</td>
+          <td>
+            Parent-Child reading workshop in Rm. 12
           </td>
         </tr>
         <tr>
-          <td>Average absences per student (Mean)</td>
+          <td>12/5/2015 12:00PM</td>
           <td>
-            <% abs = [] %>
-            <% @all_attendance.map do |x| %>
-            <% abs.insert(0, x.absences.to_i) %>
-            <% end %>
-            <% if @students.nil? %>
-              <%= (abs.inject(0, :+)) / (@students.length.nil? ? 1 : @students.length) %>
-            <% end %>
+            Storytime event in Rm. 300.
           </td>
-        </tr>
-        <tr>
-          <td>Student with the most absences</td>
-          <td>
-            <% tardy_student = 0 %>
-            <% @students.each do |x| %>
-              <% if !x.attendance_matter.nil? && x.attendance_matter.absences.to_i > tardy_student %>
-                <% tardy_student = x.attendance_matter.absences %>
-              <% end %>
-            <% end %>
-            <%= tardy_student %>
-          </td>
-        </tr>
-        <tr>
-          <td>Students absent more than 10% of days</td>
-          <td>75</td>
-        </tr>
-        <tr>
-          <td>Average absences per student per week</td>
-          <td>75</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-<div class="row">
-  <div class="large-24 columns">
-    <table>
-      <thead>
-        <tr>
-          <th>Reading Data</th>
-          <th width="150">Data</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Total Hours Read</td>
-          <td>
-            645
-          </td>
-        </tr>
-        <tr>
-          <td>Hours Read Per Student</td>
-          <td>35</td>
-        </tr>
-        <tr>
-          <td>Hours Of Reading Instruction</td>
-          <td>125</td>
-        </tr>
-        <tr>
-          <td>Hours Reading Instruction Per Student</td>
-          <td>10</td>
-        </tr>
-        <tr>
-          <td>Hours Listening To Reading Aloud</td>
-          <td>310</td>
-        </tr>
-        <tr>
-          <td>Hours Listening To Reading Aloud Per Student</td>
-          <td>25</td>
-        </tr>
-        <tr>
-          <td>Books Read Per Student</td>
-          <td>9</td>
-        </tr>
-        <tr>
-          <td>Books Loaned Per Student</td>
-          <td>9</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<div class="row">
-  <div class="large-24 columns">
-    <table>
-      <thead>
-        <tr>
-          <th>Community Outreach Data</th>
-          <th width="150">Data</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Total Tweets</td>
-          <td>125</td>
-        </tr>
-        <tr>
-          <td>Total Facebook Messages</td>
-          <td>83</td>
-        </tr>
-        <tr>
-          <td>Total Instagrams</td>
-          <td>24</td>
-        </tr>
-        <tr>
-          <td>Total Physical Outreaches</td>
-          <td>4</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+
 
 </body>
 </html>
