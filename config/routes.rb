@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :participants
   resources :partners
+  resources :community_leaders
   resources :profiles
   resources :family_engagements
   resources :attendance_matters
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   get '/users/select_partner/' => 'users#select_partner'
   post '/users/load_partner/' => 'users#load_partner'
   post '/users/select_partner/load_partner' => 'users#load_partner'
+
   # post '/users/select_partner/load_partner' => 'users#select_partner#load_partner'
 
   # The priority is based upon order of creation: first created -> highest priority.
