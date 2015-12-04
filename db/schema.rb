@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901184735) do
+ActiveRecord::Schema.define(version: 20151202142759) do
 
   create_table "attendance_matters", force: :cascade do |t|
     t.integer  "absences"
@@ -43,6 +43,21 @@ ActiveRecord::Schema.define(version: 20150901184735) do
     t.integer  "public_speech"
     t.integer  "partner_id"
     t.integer  "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "leaders", force: :cascade do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "address"
+    t.integer  "zip_code"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
