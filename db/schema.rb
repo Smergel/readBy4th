@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20151202142759) do
 
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.string   "link_to_article"
+    t.string   "link_to_picture"
+    t.text     "article_preview"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "attendance_matters", force: :cascade do |t|
     t.integer  "absences"
     t.boolean  "asthma"
@@ -47,6 +56,7 @@ ActiveRecord::Schema.define(version: 20151202142759) do
     t.datetime "updated_at",        null: false
   end
 
+<<<<<<< HEAD
   create_table "leaders", force: :cascade do |t|
     t.string   "fname"
     t.string   "lname"
@@ -60,6 +70,15 @@ ActiveRecord::Schema.define(version: 20151202142759) do
     t.datetime "logo_updated_at"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+=======
+  create_table "media", force: :cascade do |t|
+    t.string   "title"
+    t.string   "link_to_artilce"
+    t.string   "link_to_picture"
+    t.text     "article_preview"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+>>>>>>> 8b56b1ddd4bd1e005df09b32c9735a8a0342e5f1
   end
 
   create_table "participants", force: :cascade do |t|
