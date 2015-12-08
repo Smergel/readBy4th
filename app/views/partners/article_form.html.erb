@@ -1,0 +1,33 @@
+<%= form_for @article, url: '/partners/articles', html: {method: "POST"} do |f| %>
+  <fieldset>
+    <legend>Administrative Media Form</legend>
+  
+
+
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :link_to_article %><br>
+      <%= f.text_field :link_to_article %>
+    </div>
+    <div class="field">
+      <%= f.label :link_to_picture %><br>
+      <%= f.text_field :link_to_picture %>
+    </div>
+    <div class="field">
+      <%=f.label :article_preview %><br>
+      <%=f.text_field :article_preview %><br>
+    </div>
+    <div class="actions">
+      <%= f.submit :Submit, class: "button" %>
+    </div>
+
+ 
+</fieldset>
+<% end %>
+
+
+
+ 

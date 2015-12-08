@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901184735) do
+ActiveRecord::Schema.define(version: 20151204162210) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.string   "link_to_article"
+    t.string   "link_to_picture"
+    t.text     "article_preview"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "attendance_matters", force: :cascade do |t|
     t.integer  "absences"
@@ -45,6 +54,15 @@ ActiveRecord::Schema.define(version: 20150901184735) do
     t.integer  "user_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.string   "title"
+    t.string   "link_to_artilce"
+    t.string   "link_to_picture"
+    t.text     "article_preview"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "participants", force: :cascade do |t|

@@ -97,6 +97,20 @@ class PartnersController < ApplicationController
     @chart3 = GoogleVisualr::Interactive::PieChart.new(data_table3, option)
 
   end
+  def articles
+    @article=Article.new(article_params)
+    if @article.save
+      redirect_to "/"
+    else 
+      render :new
+    end
+  end
+  def article_form
+    @partner = 1
+    @article = Article.new
+  end
+
+
 
   # GET /partners/1
   # GET /partners/1.json
@@ -171,5 +185,9 @@ class PartnersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def partner_params
       params.require(:partner).permit(:name, :address, :zip_code, :website, :email, :program_start, :program_end, :logo, :phone)
+    end
+
+    def article_params
+      params.require(:article).permit(:title, :link_to_article, :link_to_picture, :article_preview)
     end
 end
