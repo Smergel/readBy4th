@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901184735) do
+ActiveRecord::Schema.define(version: 20151207162740) do
 
   create_table "attendance_matters", force: :cascade do |t|
     t.integer  "absences"
@@ -47,17 +47,21 @@ ActiveRecord::Schema.define(version: 20150901184735) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "parents", force: :cascade do |t|
+    t.string   "parent_first_name"
+    t.string   "parent_last_name"
+    t.string   "home_address"
+    t.integer  "zip_code"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "participants", force: :cascade do |t|
-    t.integer  "partner_id"
+    t.integer  "parent_id"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "absence"
-    t.string   "email"
     t.date     "date_of_birth"
-    t.string   "home_address"
     t.string   "school"
-    t.string   "parent_name"
-    t.boolean  "student"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -115,8 +119,20 @@ ActiveRecord::Schema.define(version: 20150901184735) do
     t.datetime "updated_at",           null: false
   end
 
+  create_table "readings", force: :cascade do |t|
+    t.integer  "participant_id"
+    t.integer  "hours_individual"
+    t.integer  "hours_instruction"
+    t.integer  "books"
+    t.string   "book_title"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.integer  "partner_id"
+    t.integer  "parent_id"
+    t.integer  "community_leader_id"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.string   "email",                  default: "",    null: false

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hours_individual: 1
+  hours_instruction: 1
+  books: 1
+  book_title: MyString
+
+two:
+  hours_individual: 1
+  hours_instruction: 1
+  books: 1
+  book_title: MyString

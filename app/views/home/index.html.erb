@@ -44,16 +44,12 @@
 	</div>
 	<div class="small-12 columns center">
 		<br />
-		<a href="/users/select_partner/" id="register-button"><div class="button reg">
+		<a href="/parents/new" id="register-button"><div class="button reg">
     Register as a Parent!</div></a>
 	</div>
 </div>
 <% else %>
-<% if !@user.nil? %>
-  <div class="row">
-    <h3>Welcome, <%= @user.profile.first_name %>, to the Read by 4th! portal <br/></h3>
-  </div>
-<% end %>
+
 
 <% end %>
 

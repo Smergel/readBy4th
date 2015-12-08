@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parent_first_name: MyString
+  parent_last_name: MyString
+  email: MyString
+  child_first_name: MyString
+  child_last_name: MyString
+  home_address: MyString
+  zip_code: 1
+  child_grade: 1
+  school: MyString
+
+two:
+  parent_first_name: MyString
+  parent_last_name: MyString
+  email: MyString
+  child_first_name: MyString
+  child_last_name: MyString
+  home_address: MyString
+  zip_code: 1
+  child_grade: 1
+  school: MyString

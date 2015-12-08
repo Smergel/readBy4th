@@ -1,70 +1,79 @@
 <div class="row">
 	<div class="large-8 columns">
-		<h1>Joe Pecci</h1>
-		<h5>322 Elmers Lane</h5>
-		<h5>Philly, 10146</h5>
-		<h5>St. Palmira Middle School District</h5>
+		<h1><%= @parent.parent_first_name + " " + @parent.parent_last_name %></h1>
+		<h5><%= @parent.home_address %></h5>
 		<br />
 		<h2>Young Readers</h2>
-		<h3>Sammy Pecci</h3>
-		<h3>Jill Pecci</h3>
+		<% @parent.participants.each do |x| %>
+			<h4><%= x.first_name %></h4>
+		<% end %>
+
+		<%= link_to "Add Child", new_participant_path, class: "button" %>
 	</div>
 	<div class="large-16 columns">
 		<h1>Record Reading Progress</h1>
-		<h3>Jill</h3>
-		<div class="cata">
-			<h5 class="cata-left">Hours Of Individual Reading Since Last Recorded</h5>
-			<input type="number" class="cata-right" />
-		</div>
-		<div class="cata">
-			<h5 class="cata-left">Hours Of Reading Instruction Since Last Recorded</h5>
-			<input type="number" class="cata-right" />
-		</div>
-		<div class="cata">
-			<h5>Book Finished</h5>
-			<input type="text" class="cata-right" />
-		</div>
-		<br />
-		<h3>Sammy</h3>
-		<div class="cata">
-			<h5 class="cata-left">Hours Of Individual Reading Since Last Recorded</h5>
-			<input type="number" class="cata-right" />
-		</div>
-		<div class="cata">
-			<h5 class="cata-left">Hours Of Reading Instruction Since Last Recorded</h5>
-			<input type="number" class="cata-right" />
-		</div>
-		<div class="cata">
-			<h5>Book Finished</h5>
-			<input type="text" class="cata-right" />
-		</div>
-		<!-- <br />
-		<h3>Stop Watch</h3>
-		<div class="big-bold">0:00:00</div>
-		<div class="small-bold">Start | Stop</div> -->
+		<% @parent.participants.each do |y| %>
+			<fieldset>
+			<h2><%= y.first_name %></h2>
+			<%= form_for @reading, url: "/participant_stats", html: { method: "POST" } do |f| %>
+			    <% if @reading.errors.any? %>
+			      <div id="error_explanation">
+			        <h2><%= pluralize(@reading.errors.count, "error") %> prohibited this reading from being saved:</h2>
+
+			        <ul>
+			        <% @reading.errors.full_messages.each do |message| %>
+			          <li><%= message %></li>
+			        <% end %>
+			        </ul>
+			      </div>
+			    <% end %>
+			    <%= f.hidden_field :participant_id, value: y.id %>
+			    <div class="field">
+			      <%= f.label :hours_individual %><br>
+			      <%= f.number_field :hours_individual %>
+			    </div>
+			    <div class="field">
+			      <%= f.label :hours_instruction %><br>
+			      <%= f.number_field :hours_instruction %>
+			    </div>
+			    <div class="field">
+			      <%= f.label :books %><br>
+			      <%= f.number_field :books %>
+			    </div>
+			    <div class="field">
+			      <%= f.label :book_title %><br>
+			      <%= f.text_field :book_title %>
+			    </div>
+			    <div class="actions">
+			      <%= f.submit :Submit, class: "button" %>
+			    </div>
+			  </fieldset>
+			<% end %>
+		<% end %>
 	</div>
 </div>
 
 <h1 class="divide alternate alternate-divide"></h1>
 
-<div class="row">
+<div class="row pad">
 	<div class="large-24 columns">
 		<h1>Report Card</h1>
+		<% @parent.participants.each do |z| %>
 		<table class="pad">
 			<thead>
-				<th>Jill's Reading Breakdowns</th>
+				<th><%= z.first_name %>'s Reading Breakdowns</th>
 				<th>Data</th>
-				<th>Goal</th>
+				<th>Mininum Goal</th>
 			</thead>
 			<tbody>
 				<tr>
 					<td>Hours Per Day Of Individual Reading</td>
-					<td>1.2</td>
+					<td><%= z.created_at %></td>
 					<td>1</td>
 				</tr>
 				<tr>
 					<td>Hours Per Day Of Reading Instruction</td>
-					<td>0.5</td>
+					<td><%= z.reading.hours_instruction %></td>
 					<td>1</td>
 				</tr>
 				<tr>
@@ -82,58 +91,10 @@
 			<h3>Percent of Goals Met</h3>
 			<img src="/assets/PieChartGoogle.jpg" />
 		</div>
-		<table class="pad">
-			<thead>
-				<th>Sammy's Reading Breakdowns</th>
-				<th>Data</th>
-				<th>Goal</th>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Hours Per Day Of Individual Reading</td>
-					<td>1.2</td>
-					<td>1</td>
-				</tr>
-				<tr>
-					<td>Hours Per Day Of Reading Instruction</td>
-					<td>0.5</td>
-					<td>1</td>
-				</tr>
-				<tr>
-					<td>Books Read Per Week</td>
-					<td>0.7</td>
-					<td>1.5</td>
-				</tr>
-			</tbody>
-		</table>
-		<div class="large-12 columns center">
-			<h3>Hours Read Per Week</h3>
-			<img src="/assets/lineChart.png" />
-		</div>
-		<div class="large-12 columns center">
-			<h3>Percent of Goals Met</h3>
-			<img src="/assets/PieChartGoogle.jpg" />
-		</div>
+		<% end %>
 	</div>
 </div>
-<h1 class="divide alternate alternate-divide"></h1>
-<div class="row pad">
-	<div class="large-8 columns center">
-		<h3>Consistent Reader</h3>
-		<h5>Read 1 Book A Week For 3 Weeks</h5>
-		<img src="/assets/medal.jpg" />
-	</div>
-	<div class="large-8 columns center">
-		<h3>Consistent Reader</h3>
-		<h5>Read 1 Book A Week For 3 Weeks</h5>
-		<img src="/assets/medal.jpg" />
-	</div>
-	<div class="large-8 columns center">
-		<h3>Consistent Reader</h3>
-		<h5>Read 1 Book A Week For 3 Weeks</h5>
-		<img src="/assets/medal.jpg" />
-	</div>
-</div>
+
 
 
 

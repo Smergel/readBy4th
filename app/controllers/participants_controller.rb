@@ -27,9 +27,9 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new(participant_params)
 
     respond_to do |format|
-      @participant.partner_id = current_user.partner_id
+      @participant.parent_id = current_user.parent_id
       if @participant.save
-        format.html { redirect_to partner_path(current_user.partner_id), notice: 'Participant was successfully created.' }
+        format.html { redirect_to parent_path(current_user.parent_id), notice: 'Participant was successfully created.' }
         format.json { render :show, status: :created, location: @participant }
       else
         format.html { render :new }

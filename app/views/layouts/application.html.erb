@@ -16,27 +16,25 @@
 
 </head>
 <body>
-<nav class="top-bar" data-topbar role="navigation">
-	<section class="logo-bar">
-		<ul class="left">
-      <li>
-        <img class="flp" src="https://www.hastac.org/sites/default/files/upload/images/project/free-library_0.jpg" /><h1 class="main-logo-word">Read! by 4th</h1>
-      </li>
-		</ul>
-	</section>
-	<section class="top-bar-section">
-		<ul class="right">
-			<li class="active"><a href="/">Home</a></li>
-			<% if !current_user.nil? %>
-				<li class="active"><%= link_to "FLP Admins", partners_path %></li>
-        <li class="active"><%= link_to (Partner.find(current_user.partner_id).name) + " Page", partner_path(current_user.partner_id) %></li>
-				<li class="active"><%= link_to "Log Out", destroy_user_session_path, method: "DELETE" %></li>
-			<% else %>
-				<li class="active"><%= link_to "Sign In", new_user_session_path %></li>
-			<% end %>
-		</ul>
-	</section>
-</nav>
+
+    <header>
+      <img src="/assets/read-by-4th-banner.png">
+      <!-- <h1>Read by 4th</h1> -->
+      <nav>
+        <a href="/">Home</a>
+        <% if !current_user.nil? %>
+          <% if !current_user.partner_id.nil? %>
+            <%= link_to "Partner Page", partner_path(current_user.partner_id) %>
+          <% elsif !current_user.parent_id.nil? %>
+            <%= link_to "Parent Page", parent_path(current_user.parent_id) %>
+          <% else %>
+            <%= link_to "Community Leader Page", community_leader_path(current_user.community_leader_id) %>
+          <% end %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: "DELETE" %>
+        <% end %>
+      </nav>
+    </header> 
+	
 <hr />
 
 <p class="notice"><%= notice %></p>

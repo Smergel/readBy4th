@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
   root 'home#index'
-  get 'partners/books_read' => 'partners/books_read'
-  get 'partners/absences' => 'partners#absences'
+  get '/partners/books_read' => 'partners/books_read'
+  get '/partners/absences' => 'partners#absences'
   get '/report' => 'partners#report'
-  get 'partners/community_leaders' => 'partners#community_leaders'
+  get '/partners/community_leaders' => 'partners#community_leaders'
   get '/partners/parents' => 'partners#parents'
+  get '/users/new_parent' => 'users#new_parent'
+  get '/users/create_parent' => 'users#create_parent'
+  post '/participant_stats' => 'parents#participant_stats'
 
   devise_for :users, controllers: { registrations: "registrations" }
   resources :posts

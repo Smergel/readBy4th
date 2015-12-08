@@ -1,0 +1,34 @@
+<%= form_for @reading, url: "/participant_stats", html: { method: "POST" } do |f| %>
+  <fieldset>
+    <% if @reading.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@reading.errors.count, "error") %> prohibited this reading from being saved:</h2>
+
+        <ul>
+        <% @reading.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :hours_individual %><br>
+      <%= f.number_field :hours_individual %>
+    </div>
+    <div class="field">
+      <%= f.label :hours_instruction %><br>
+      <%= f.number_field :hours_instruction %>
+    </div>
+    <div class="field">
+      <%= f.label :books %><br>
+      <%= f.number_field :books %>
+    </div>
+    <div class="field">
+      <%= f.label :book_title %><br>
+      <%= f.text_field :book_title %>
+    </div>
+    <div class="actions">
+      <%= f.submit :Submit, class: "button" %>
+    </div>
+  </fieldset>
+<% end %>
