@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'community_leaders/show'
+
+  get 'community_leaders/new'
+
+  get 'community_leaders/create'
+
   root 'home#index'
   get '/partners/books_read' => 'partners/books_read'
   get '/partners/absences' => 'partners#absences'
@@ -11,6 +17,9 @@ Rails.application.routes.draw do
   post '/participant_stats' => 'parents#participant_stats'
   post "/partners/articles" => "partners#articles"
   get "/partners/article_form" => "partners#article_form"
+  post "/event" => "partners#create_event"
+  post "/community_leaders/create" => "community_leaders#create"
+  get "/users/new_leader" => "users#new_leader"
 
   devise_for :users, controllers: { registrations: "registrations" }
   resources :posts

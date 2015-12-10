@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20151210175401) do
+
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -35,6 +37,7 @@ ActiveRecord::Schema.define(version: 20151210175401) do
     t.datetime "updated_at",                 null: false
   end
 
+
   create_table "documents", force: :cascade do |t|
     t.integer  "partner_id"
     t.string   "doc_file_name"
@@ -43,6 +46,15 @@ ActiveRecord::Schema.define(version: 20151210175401) do
     t.datetime "doc_updated_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "date"
+    t.text     "description"
+    t.integer  "partner_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+
   end
 
   create_table "evidence_based_readings", force: :cascade do |t|
@@ -71,14 +83,9 @@ ActiveRecord::Schema.define(version: 20151210175401) do
     t.string   "lname"
     t.string   "address"
     t.integer  "zip_code"
-    t.string   "email"
     t.string   "phone"
-    t.string   "logo_file_name"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
-    t.datetime "logo_updated_at"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "parents", force: :cascade do |t|
@@ -88,6 +95,18 @@ ActiveRecord::Schema.define(version: 20151210175401) do
     t.integer  "zip_code"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+<<<<<<< HEAD
+=======
+  end
+
+  create_table "parents", force: :cascade do |t|
+    t.string   "parent_first_name"
+    t.string   "parent_last_name"
+    t.string   "home_address"
+    t.integer  "zip_code"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+>>>>>>> 613af09e15553b7dd3a9ae1e4f8cf5742c6210b7
   end
 
   create_table "participants", force: :cascade do |t|
@@ -176,7 +195,7 @@ ActiveRecord::Schema.define(version: 20151210175401) do
   create_table "users", force: :cascade do |t|
     t.integer  "partner_id"
     t.integer  "parent_id"
-    t.integer  "community_leader_id"
+    t.integer  "leader_id"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.string   "email",                  default: "",    null: false

@@ -29,7 +29,7 @@
           <% elsif !current_user.parent_id.nil? %>
             <%= link_to "Parent Page", parent_path(current_user.parent_id) %>
           <% else %>
-            <%= link_to "Community Leader Page", community_leader_path(current_user.community_leader_id) %>
+            <%= link_to "Community Leader Page", community_leader_path(current_user.leader_id) %>
           <% end %>
           <%= link_to "Sign Out", destroy_user_session_path, method: "DELETE" %>
         <% end %>
