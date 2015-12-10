@@ -22,8 +22,9 @@
       <!-- <h1>Read by 4th</h1> -->
       <nav>
         <a href="/">Home</a>
+        <%= link_to "Sign In", new_user_session_path %>
         <% if !current_user.nil? %>
-          <% if !current_user.partner_id.nil? %>
+          <% if !current_user.partner_id.nil? %> 
             <%= link_to "Partner Page", partner_path(current_user.partner_id) %>
           <% elsif !current_user.parent_id.nil? %>
             <%= link_to "Parent Page", parent_path(current_user.parent_id) %>

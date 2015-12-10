@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202142759) do
+ActiveRecord::Schema.define(version: 20151207162740) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -56,16 +56,6 @@ ActiveRecord::Schema.define(version: 20151202142759) do
     t.datetime "updated_at",        null: false
   end
 
-<<<<<<< HEAD
-  create_table "parents", force: :cascade do |t|
-    t.string   "parent_first_name"
-    t.string   "parent_last_name"
-    t.string   "home_address"
-    t.integer  "zip_code"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-=======
-<<<<<<< HEAD
   create_table "leaders", force: :cascade do |t|
     t.string   "fname"
     t.string   "lname"
@@ -79,16 +69,15 @@ ActiveRecord::Schema.define(version: 20151202142759) do
     t.datetime "logo_updated_at"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-=======
-  create_table "media", force: :cascade do |t|
-    t.string   "title"
-    t.string   "link_to_artilce"
-    t.string   "link_to_picture"
-    t.text     "article_preview"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
->>>>>>> 8b56b1ddd4bd1e005df09b32c9735a8a0342e5f1
->>>>>>> aad2a5864c248bb2cfca85cd2a920370f9a11d01
+  end
+
+  create_table "parents", force: :cascade do |t|
+    t.string   "parent_first_name"
+    t.string   "parent_last_name"
+    t.string   "home_address"
+    t.integer  "zip_code"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "participants", force: :cascade do |t|
