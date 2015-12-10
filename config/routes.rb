@@ -6,14 +6,11 @@ Rails.application.routes.draw do
   get '/report' => 'partners#report'
   get '/partners/community_leaders' => 'partners#community_leaders'
   get '/partners/parents' => 'partners#parents'
-<<<<<<< HEAD
   get '/users/new_parent' => 'users#new_parent'
   get '/users/create_parent' => 'users#create_parent'
   post '/participant_stats' => 'parents#participant_stats'
-=======
   post "/partners/articles" => "partners#articles"
   get "/partners/article_form" => "partners#article_form"
->>>>>>> aad2a5864c248bb2cfca85cd2a920370f9a11d01
 
   devise_for :users, controllers: { registrations: "registrations" }
   resources :posts
@@ -29,6 +26,7 @@ Rails.application.routes.draw do
   get '/users/select_partner/' => 'users#select_partner'
   post '/users/load_partner/' => 'users#load_partner'
   post '/users/select_partner/load_partner' => 'users#load_partner'
+  post '/photos' => 'partners#photos'
 
 
   # post '/users/select_partner/load_partner' => 'users#select_partner#load_partner'

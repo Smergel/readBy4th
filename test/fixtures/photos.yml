@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  partner_id: 
+  photo: 
+
+two:
+  partner_id: 
+  photo: 

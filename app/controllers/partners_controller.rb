@@ -4,8 +4,12 @@ class PartnersController < ApplicationController
   # GET /partners
   # GET /partners.json
   def index
+    @partner=Partner.where(partner_params)
     @partners = Partner.all
     @user = current_user
+    @photo= Photo.new
+    @photos=Photo.where(partner_id: @partner.id)
+
   end
 
   def parents
@@ -110,6 +114,16 @@ class PartnersController < ApplicationController
     @article = Article.new
   end
 
+  def photos
+    @photo=Photo.new(photo_params)
+    @photo.partner_id=current_user.partner_id
+    if @photo.save
+      redirect_to :back
+    else
+      render :new
+    end
+  end
+
 
 
   # GET /partners/1
@@ -125,6 +139,9 @@ class PartnersController < ApplicationController
 
     @students = Participant.where(student: true, partner_id: @partner.id)
     @participants = Participant.all
+
+    @photo= Photo.new
+    @photos=Photo.where(params[:id])
   end
 
   # GET /partners/new
@@ -189,5 +206,8 @@ class PartnersController < ApplicationController
 
     def article_params
       params.require(:article).permit(:title, :link_to_article, :link_to_picture, :article_preview)
+    end
+    def photo_params
+      params.require(:photo).permit(:photo)
     end
 end
