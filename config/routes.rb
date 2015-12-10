@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   post '/users/load_partner/' => 'users#load_partner'
   post '/users/select_partner/load_partner' => 'users#load_partner'
   post '/photos' => 'partners#photos'
+  post '/documents' => 'partners#documents'
 
 
   # post '/users/select_partner/load_partner' => 'users#select_partner#load_partner'

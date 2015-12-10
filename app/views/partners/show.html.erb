@@ -24,6 +24,11 @@
         <span class="postal-code"><%= @partner.zip_code %></span>
       </div>
       <%= link_to 'Edit', edit_partner_path(@partner) %>
+      <%= form_for Document.new, html: {multipart: true} do |f| %>
+        <%= f.label :upload_pdf, class: 'pdf-label' %>
+        <%= f.file_field :doc %>
+        <%= f.submit :upload %>
+    <% end %>
     </div>
   </div>
   <div class="large-19 columns">
@@ -63,9 +68,9 @@
 <div class="row">
   <div class="large-24 columns">
     <%= form_for Photo.new, html: {multipart: true} do |f| %>
-    <%= f.label :upload_photo, class: 'photo-label' %>
-    <%= f.file_field :photo %>
-    <%= f.submit :upload %>
+      <%= f.label :upload_photo, class: 'photo-label' %>
+      <%= f.file_field :photo %>
+      <%= f.submit :upload %>
     <% end %>
   </div>
 </div>

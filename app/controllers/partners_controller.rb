@@ -114,6 +114,16 @@ class PartnersController < ApplicationController
     @article = Article.new
   end
 
+  def documents
+    @doc=Document.new(document_params)
+    @doc.partner_id=current_user.partner_id
+    if @doc.save
+      redirect_to :back
+    else
+      render :new
+    end
+  end
+
   def photos
     @photo=Photo.new(photo_params)
     @photo.partner_id=current_user.partner_id
@@ -209,5 +219,8 @@ class PartnersController < ApplicationController
     end
     def photo_params
       params.require(:photo).permit(:photo)
+    end
+    def document_params
+      params.require(:document).permit(:doc)
     end
 end

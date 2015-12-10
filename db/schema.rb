@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20151209150302) do
-
+ActiveRecord::Schema.define(version: 20151210175401) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -35,6 +33,16 @@ ActiveRecord::Schema.define(version: 20151209150302) do
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.integer  "partner_id"
+    t.string   "doc_file_name"
+    t.string   "doc_content_type"
+    t.integer  "doc_file_size"
+    t.datetime "doc_updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "evidence_based_readings", force: :cascade do |t|
