@@ -63,23 +63,29 @@
 			<thead>
 				<th><%= z.first_name %>'s Reading Breakdowns</th>
 				<th>Data</th>
-				<th>Mininum Goal</th>
+				<!-- <th>Mininum Goal</th> -->
 			</thead>
 			<tbody>
 				<tr>
 					<td>Hours Per Day Of Individual Reading</td>
-					<td><%= z.created_at %></td>
-					<td>1</td>
+					<td>
+						<% if z.reading.nil? %>
+							<%= 0 %>
+						<% else %>
+							<%= 1 %>
+						<% end %> 
+					</td>
+					<!-- <td>1</td> -->
 				</tr>
 				<tr>
 					<td>Hours Per Day Of Reading Instruction</td>
-					<td><%= z.reading.hours_instruction %></td>
-					<td>1</td>
+					<td>0</td>
+					<!-- <td>1</td> -->
 				</tr>
 				<tr>
 					<td>Books Read Per Week</td>
-					<td>0.7</td>
-					<td>1.5</td>
+					<td>0</td>
+					<!-- <td>1.5</td> -->
 				</tr>
 			</tbody>
 		</table>

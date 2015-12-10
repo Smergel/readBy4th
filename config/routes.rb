@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get '/users/select_partner/' => 'users#select_partner'
   post '/users/load_partner/' => 'users#load_partner'
   post '/users/select_partner/load_partner' => 'users#load_partner'
+  post '/photos' => 'partners#photos'
 
 
   # post '/users/select_partner/load_partner' => 'users#select_partner#load_partner'
