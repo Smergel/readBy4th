@@ -1,0 +1,41 @@
+<%= form_for Leader.new, url: "/community_leaders/create", html: { method: "POST"} do |f| %>
+  <fieldset>
+    <legend>Community Leaders</legend>
+    <% if @community_leaders.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@community_leaders.errors.count, "error") %> prohibited this community_leaders from being saved:</h2>
+
+        <ul>
+        <% @community_leaders.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <div class="field">
+      <%= f.label :community_leaders_first_name %><br>
+      <%= f.text_field :fname %>
+    </div>
+    <div class="field">
+      <%= f.label :community_leaders_last_name %><br>
+      <%= f.text_field :lname %>
+    </div>
+    <div class="field">
+      <%= f.label :home_address %><br>
+      <%= f.text_field :address %>
+    </div>
+    <div class="field">
+      <%= f.label :zip_code %><br>
+      <%= f.number_field :zip_code %>
+    </div>
+    <div class="field">
+      <%= f.label :phone %><br>
+      <%= f.number_field :phone %>
+    </div>
+    <div class="actions">
+      <%= f.submit :Submit, class: "button" %>
+    </div>
+  </fieldset>
+<% end %>

@@ -11,6 +11,15 @@ class PartnersController < ApplicationController
   def parents
     @partners = Partner.all
   end
+  def create_event
+    @event = Event.new(event_params)
+    @event.partner_id = current_user.partner_id
+    if @event.save 
+      redirect_to partners_path(current_user.partner_id)
+    else
+      render :new
+    end
+  end
 
   def books_read 
     @partners = Partner.all
@@ -186,7 +195,9 @@ class PartnersController < ApplicationController
     def partner_params
       params.require(:partner).permit(:name, :address, :zip_code, :website, :email, :program_start, :program_end, :logo, :phone)
     end
-
+    def event_params
+      params.require(:event).permit(:title, :date, :description, :partner_id)
+    end
     def article_params
       params.require(:article).permit(:title, :link_to_article, :link_to_picture, :article_preview)
     end
