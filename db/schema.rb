@@ -35,6 +35,25 @@ ActiveRecord::Schema.define(version: 20151209150302) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.integer  "partner_id"
+    t.string   "doc_file_name"
+    t.string   "doc_content_type"
+    t.integer  "doc_file_size"
+    t.datetime "doc_updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "date"
+    t.text     "description"
+    t.integer  "partner_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "evidence_based_readings", force: :cascade do |t|
     t.integer  "teachers"
     t.integer  "administrators"
@@ -69,6 +88,8 @@ ActiveRecord::Schema.define(version: 20151209150302) do
     t.datetime "logo_updated_at"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+<<<<<<< HEAD
+=======
   end
 
   create_table "parents", force: :cascade do |t|
@@ -78,6 +99,7 @@ ActiveRecord::Schema.define(version: 20151209150302) do
     t.integer  "zip_code"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+>>>>>>> b7fbd76df2b870ce5b8314bcc8c5b905a0d07326
   end
 
   create_table "participants", force: :cascade do |t|

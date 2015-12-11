@@ -1,3 +1,54 @@
+<head>
+<script type="text/javascript"
+      src="https://www.google.com/jsapi?autoload={
+        'modules':[{
+          'name':'visualization',
+          'version':'1',
+          'packages':['corechart']
+        }]
+      }"></script>
+
+<script type="text/javascript">
+google.load('visualization', '1', {packages: ['corechart', 'line']});
+google.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Dogs');
+
+      data.addRows([
+        [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
+        [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
+        [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+        [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+        [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+        [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+        [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+        [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+        [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+        [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+        [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+        [66, 70], [67, 72], [68, 75], [69, 80]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Weeks'
+        },
+        vAxis: {
+          title: 'Hours Read'
+        }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+</script>
+</head>
+
 <div class="row">
 	<div class="large-8 columns">
 		<h1><%= @parent.parent_first_name + " " + @parent.parent_last_name %></h1>
@@ -9,6 +60,12 @@
 		<% end %>
 
 		<%= link_to "Add Child", new_participant_path, class: "button" %>
+		<h3>Informational Resources</h3>
+		<ul>
+			<li><a href="https://libwww.freelibrary.org/readby4th/programs.cfm">Programs In Philly</a></li>
+			<li><a href="https://libwww.freelibrary.org/readby4th/summer.cfm">Summer Programs</a></li>
+			<li><a href="https://libwww.freelibrary.org/readby4th/booklist.cfm">Book Lists</a></li>
+		</ul>
 	</div>
 	<div class="large-16 columns">
 		<h1>Record Reading Progress</h1>
@@ -65,38 +122,80 @@
 				<th>Data</th>
 				<!-- <th>Mininum Goal</th> -->
 			</thead>
-			<tbody>
-				<tr>
-					<td>Hours Per Day Of Individual Reading</td>
-					<td>
-						<% if z.reading.nil? %>
-							<%= 0 %>
-						<% else %>
-							<%= 1 %>
-						<% end %> 
-					</td>
-					<!-- <td>1</td> -->
-				</tr>
-				<tr>
-					<td>Hours Per Day Of Reading Instruction</td>
-					<td>0</td>
-					<!-- <td>1</td> -->
-				</tr>
-				<tr>
-					<td>Books Read Per Week</td>
-					<td>0</td>
-					<!-- <td>1.5</td> -->
-				</tr>
-			</tbody>
+			<% if z.reading.nil? %>	
+				<tbody>
+					<tr>
+						<td>Hours Per Day Of Individual Reading</td>
+						<td>0</td>
+						<!-- <td>1</td> -->
+					</tr>
+					<tr>
+						<td>Hours Per Day Of Reading Instruction</td>
+						<td>0</td>
+						<!-- <td>1</td> -->
+					</tr>
+					<tr>
+						<td>Books Read Per Week</td>
+						<td>0</td>
+						<!-- <td>1.5</td> -->
+					</tr>
+				</tbody>
+			<% else %>
+				<tbody>
+					<tr>
+						<td>Hours Per Day Of Individual Reading</td>
+						<td>
+							<% if Reading.where(participant_id: z.id).nil? %>
+								<%= 0 %>
+							<% else %>
+								<% total = [] %>
+								<% Reading.where(participant_id: z.id).each do |a| %>
+									<% a.hours_individual.nil? ? nil : total << a.hours_individual %>
+								<% end %>
+								<%= (total.reduce(:+) / ((Time.now - Reading.where(participant_id: z.id).first.created_at) / 86400)).round(2) %>
+							<% end %>
+						</td>
+						<!-- <td>1</td> -->
+					</tr>
+					<tr>
+						<td>Hours Per Day Of Reading Instruction</td>
+						<td>
+							<% if Reading.where(participant_id: z.id).nil? %>
+								<%= 0 %>
+							<% else %>
+								<% total = [] %>
+								<% Reading.where(participant_id: z.id).each do |a| %>
+									<% a.hours_instruction.nil? ? nil : total << a.hours_instruction %>
+								<% end %>
+								<%= (total.reduce(:+) / ((Time.now - Reading.where(participant_id: z.id).first.created_at) / 86400)).round(2) %>
+								
+							<% end %>
+						</td>
+						<!-- <td>1</td> -->
+					</tr>
+					<tr>
+						<td>Books Read Per Week</td>
+						<td>
+							<% if Reading.where(participant_id: z.id).nil? %>
+								<%= 0 %>
+							<% else %>
+								<% total = [] %>
+								<% Reading.where(participant_id: z.id).each do |a| %>
+									<% a.books.nil? ? nil : total << a.books %>
+								<% end %>
+								<%= (total.reduce(:+) / ((Time.now - Reading.where(participant_id: z.id).first.created_at) / 86400) / 24 * 7).round(2) %>
+							<% end %>
+						</td>
+						<!-- <td>1.5</td> -->
+					</tr>
+				</tbody>
+			<% end %>
 		</table>
-		<div class="large-12 columns center">
-			<h3>Hours Read Per Week</h3>
-			<img src="/assets/lineChart.png" />
+		<div class="large-24 columns center">
+			<!-- <h3>Hours Read Per Week</h3> -->
+			<!-- <div id="chart_div"></div> -->
 		</div>
-		<div class="large-12 columns center">
-			<h3>Percent of Goals Met</h3>
-			<img src="/assets/PieChartGoogle.jpg" />
-		</div>
+		
 		<% end %>
 	</div>
 </div>

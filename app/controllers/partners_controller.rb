@@ -15,6 +15,15 @@ class PartnersController < ApplicationController
   def parents
     @partners = Partner.all
   end
+  def create_event
+    @event = Event.new(event_params)
+    @event.partner_id = current_user.partner_id
+    if @event.save 
+      redirect_to partners_path(current_user.partner_id)
+    else
+      render :new
+    end
+  end
 
   def books_read 
     @partners = Partner.all
@@ -114,6 +123,16 @@ class PartnersController < ApplicationController
     @article = Article.new
   end
 
+  def documents
+    @doc=Document.new(document_params)
+    @doc.partner_id=current_user.partner_id
+    if @doc.save
+      redirect_to :back
+    else
+      render :new
+    end
+  end
+
   def photos
     @photo=Photo.new(photo_params)
     @photo.partner_id=current_user.partner_id
@@ -203,11 +222,16 @@ class PartnersController < ApplicationController
     def partner_params
       params.require(:partner).permit(:name, :address, :zip_code, :website, :email, :program_start, :program_end, :logo, :phone)
     end
-
+    def event_params
+      params.require(:event).permit(:title, :date, :description, :partner_id)
+    end
     def article_params
       params.require(:article).permit(:title, :link_to_article, :link_to_picture, :article_preview)
     end
     def photo_params
       params.require(:photo).permit(:photo)
+    end
+    def document_params
+      params.require(:document).permit(:doc)
     end
 end
