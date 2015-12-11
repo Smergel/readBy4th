@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20151208163205) do
-=======
-
 ActiveRecord::Schema.define(version: 20151209150302) do
-
->>>>>>> 613af09e15553b7dd3a9ae1e4f8cf5742c6210b7
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -88,18 +82,6 @@ ActiveRecord::Schema.define(version: 20151209150302) do
     t.integer  "zip_code"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-<<<<<<< HEAD
-=======
-  end
-
-  create_table "parents", force: :cascade do |t|
-    t.string   "parent_first_name"
-    t.string   "parent_last_name"
-    t.string   "home_address"
-    t.integer  "zip_code"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
->>>>>>> 613af09e15553b7dd3a9ae1e4f8cf5742c6210b7
   end
 
   create_table "participants", force: :cascade do |t|
