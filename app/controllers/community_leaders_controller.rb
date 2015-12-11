@@ -3,6 +3,7 @@ class CommunityLeadersController < ApplicationController
   end
 
   def show
+    @leader=Leader.find(params[:id])
   end
 
   def edit
@@ -28,7 +29,7 @@ class CommunityLeadersController < ApplicationController
   end
   private
   def leader_params
-    params.require(:leader).permit(:fname, :lname, :zip_code, :number, :address)
+    params.require(:leader).permit(:fname, :lname, :zip_code, :number, :address, :logo)
   end
 
 end

@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 20151210175401) do
     t.string   "lname"
     t.string   "address"
     t.integer  "zip_code"
-    t.string   "email"
     t.string   "phone"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
@@ -185,7 +184,7 @@ ActiveRecord::Schema.define(version: 20151210175401) do
   create_table "users", force: :cascade do |t|
     t.integer  "partner_id"
     t.integer  "parent_id"
-    t.integer  "community_leader_id"
+    t.integer  "leader_id"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.string   "email",                  default: "",    null: false
