@@ -118,6 +118,9 @@
 	margin: 25px 0px;
 }
 .padder p {
+	width: 100%;
+	overflow: hidden;
+	margin: 25px 0px;
 	text-align: left;
 }
 .darkness {
