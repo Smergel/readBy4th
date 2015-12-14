@@ -62,43 +62,20 @@
 
 <div class="darkness">
 	<div class="row">
-		<div class="large-8 columns">
-			<fieldset class="padder">
-			 	<img src="assets/eagles_square.jpg" alt="" class="picture">
-			 	<h2 class="media-title">Eagles! Volunteer Locally</h2>
-			 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			 	consequat. Duis aute irure dolor in reprehenderit in voluptate .
-			 	</p>
-			</fieldset>
-	 	</div>
-	    <div class="large-8 columns">
-			<fieldset class="padder">
-			 	<img src="assets/summer_reading_square.jpg" alt="" class="picture">
-			 	<h2 class="media-title">Read! By 4th Summer Programs Begin</h2>
-			 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			 	consequat. Duis aute irure dolor in reprehenderit in voluptate .
-			 	</p>
-			</fieldset>
-	 	</div>
-	 	<div class="large-8 columns">
-			<fieldset class="padder">
-			 	<img src="assets/children_reading_square.jpg" alt="" class="picture">
-			 	<h2 class="media-title">Branden Boykin Leads A Reading Group</h2>
-			 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			 	consequat. Duis aute irure dolor in reprehenderit in voluptate .
-			 	</p>
-			</fieldset>
-	 	</div>
+		<% @story.each do |x| %>
+			<div class="large-8 columns">
+				<fieldset class="padder">
+					<%= image_tag x.picture, class: "picture" %>
+					<h2><%= x.title %></h2>
+					<p><%= x.description %></p>
+					<span><%= x.story %></span>
+				</fieldset>
+			</div>
+		<% end %>
 	</div>
 </div>
 
-<h1 class="divide alternate alternate-divide">Upcoming Partner Events</h1>	
+<!-- <h1 class="divide alternate alternate-divide">Upcoming Partner Events</h1>	
 
 <div class="row">
   <div class="medium-24 columns">
@@ -139,4 +116,4 @@
     </div>
   </div>
 </div>
-<br />
+<br /> -->

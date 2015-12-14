@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'community_leaders/show'
-
-  get 'community_leaders/new'
-
-  get 'community_leaders/create'
-
   root 'home#index'
   get '/partners/books_read' => 'partners/books_read'
   get '/partners/absences' => 'partners#absences'
@@ -21,6 +15,8 @@ Rails.application.routes.draw do
   post "/community_leaders/create" => "community_leaders#create"
 
   get "/users/new_leader" => "users#new_leader"
+  get "/story" => "partners#edit_media"
+  post "/story" => "partners#story"
 
   devise_for :users, controllers: { registrations: "registrations" }
   resources :posts

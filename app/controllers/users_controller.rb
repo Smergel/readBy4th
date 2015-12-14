@@ -83,7 +83,7 @@ class UsersController < ApplicationController
     # puts @partner  
     redirect_to '/users/sign_up/'
   end
-
+  # what is user sign_in, a turd in kings clothes?
   # def load_partner
   #   @partner = params[:partner]
   #   puts @partner  
