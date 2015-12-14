@@ -4,16 +4,27 @@ class PartnersController < ApplicationController
   # GET /partners
   # GET /partners.json
   def index
-    @partner=Partner.where(partner_params)
+    # @partner=Partner.where(partner_params)
     @partners = Partner.all
     @user = current_user
     @photo= Photo.new
-    @photos=Photo.where(partner_id: @partner.id)
+    # @photos=Photo.where(partner_id: @partner.id)
 
   end
 
   def parents
     @partners = Partner.all
+  end
+  def edit_media 
+    @story = Story.new
+  end
+  def story
+    @story = Story.new(story_params)
+    if @story.save
+      redirect_to '/'
+    else 
+      render :new
+    end
   end
   def create_event
     @event = Event.new(event_params)
@@ -233,5 +244,8 @@ class PartnersController < ApplicationController
     end
     def document_params
       params.require(:document).permit(:doc)
+    end
+    def story_params
+      params.require(:story).permit(:picture, :title, :description, :story)
     end
 end
