@@ -14,6 +14,17 @@ class PartnersController < ApplicationController
   def parents
     @partners = Partner.all
   end
+  def edit_media 
+    @story = Story.new
+  end
+  def story
+    @story = Story.new(story_params)
+    if @story.save
+      redirect_to '/'
+    else 
+      render :new
+    end
+  end
   def create_event
     @event = Event.new(event_params)
     @event.partner_id = current_user.partner_id
@@ -232,5 +243,8 @@ class PartnersController < ApplicationController
     end
     def document_params
       params.require(:document).permit(:doc)
+    end
+    def story_params
+      params.require(:story).permit(:picture, :title, :description, :story)
     end
 end

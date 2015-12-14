@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post "/event" => "partners#create_event"
   post "/community_leaders/create" => "community_leaders#create"
   get "/users/new_leader" => "users#new_leader"
+  get "/story" => "partners#edit_media"
+  post "/story" => "partners#story"
 
   devise_for :users, controllers: { registrations: "registrations" }
   resources :posts

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210175401) do
+ActiveRecord::Schema.define(version: 20151214153430) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -81,12 +81,8 @@ ActiveRecord::Schema.define(version: 20151210175401) do
     t.string   "address"
     t.integer  "zip_code"
     t.string   "phone"
-    t.string   "logo_file_name"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
-    t.datetime "logo_updated_at"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "parents", force: :cascade do |t|
@@ -179,6 +175,15 @@ ActiveRecord::Schema.define(version: 20151210175401) do
     t.string   "book_title"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string   "picture"
+    t.string   "title"
+    t.text     "description"
+    t.string   "story"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

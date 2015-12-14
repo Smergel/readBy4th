@@ -92,7 +92,7 @@
  	font-size: 1.3em;
  }
  .picture {
- 	width: 100%;
+ 	width: 250px;
  	height: 250px;
  	background-color: darkblue;
  	border-radius: 100%;
@@ -114,6 +114,7 @@
 	background-color: #fff;
 	border-radius: 5px;
 	height:510px;
+	width: 100%;
 }
 .darkness {
 	background-color: #f4f4f4;
