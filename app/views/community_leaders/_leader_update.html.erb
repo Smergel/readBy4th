@@ -1,4 +1,4 @@
-<%= form_for Leader.new, url: "/community_leaders/create", html: { method: "POST"} do |f| %>
+<%= form_for @leader, :url => url_for(:controller => 'community_leaders', :action => 'update') do |f| %>
   <fieldset>
     <legend>Community Leaders</legend>
     <% if @leader.errors.any? %>

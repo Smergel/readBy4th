@@ -14,7 +14,6 @@
       <h1><%= @leader.fname %></h1>
       <h1><%= @leader.lname %></h1>
       <div class="logo"> <%= image_tag(@leader.logo.url(:thumb)) %> </div>
-      <div class="email"><span class="vcard-label">Email: </span><a><%= @leader.email %></a></div>
       <%= link_to 'Edit', edit_community_leader_path(@leader) %>
       
     </div>

@@ -1,4 +1,5 @@
 class ParentsController < ApplicationController
+  before_action :set_parent, only: [:show, :edit, :update, :destroy]
   def index
   end
 
@@ -38,10 +39,33 @@ class ParentsController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      if @parent.update(parent_params)
+        format.html { redirect_to @parent, notice: 'Parent was successfully updated.' }
+        format.json { render :show, status: :ok, location: @parent }
+      else
+        format.html { render :edit }
+        format.json { render json: @parent.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /parent/1
+  # DELETE /parent/1.json
   def destroy
+    @parent.destroy
+    respond_to do |format|
+      format.html { redirect_to partners_url, notice: 'Parent was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
+    def set_parent
+      @parent = Parent.find(params[:id])
+    end
+
     def parent_params
       params.require(:parent).permit(:parent_first_name, :parent_last_name, :email, :child_first_name, :child_last_name, :home_address, :zip_code, :child_grade, :school)
     end
