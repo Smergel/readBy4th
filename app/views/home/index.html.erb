@@ -62,14 +62,14 @@
 
 <div class="darkness">
 	<div class="row">
-		<% @story.each do |x| %>
-			<div class="large-8 columns">
-				<fieldset class="padder">
+		<% @story.reverse.each do |x| %>
+			<div class="large-8 columns center">
+				<div class="padder">
 					<%= image_tag x.picture, class: "picture" %>
 					<h2><%= x.title %></h2>
-					<p><%= x.description %></p>
-					<span><%= x.story %></span>
-				</fieldset>
+					<p><%= x.description.first(256) + "..." %></p>
+					<span><%= link_to "Read The Story", x.story %></span>
+				</div>
 			</div>
 		<% end %>
 	</div>
