@@ -6,6 +6,7 @@ class CreateLeaders < ActiveRecord::Migration
       t.string :address
       t.integer :zip_code
       t.string :phone
+      t.attachment :logo
 
       t.timestamps null: false
     end

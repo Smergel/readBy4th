@@ -11,10 +11,10 @@
 <div class="row">
   <div class="large-5 columns">
     <div class="vcard">
-     
-      <h1>John</h1>
-      <h1>Smith</h1>
-      <div class="logo"></div>
+      <h1><%= @leader.fname %></h1>
+      <h1><%= @leader.lname %></h1>
+      <div class="logo"> <%= image_tag(@leader.logo.url(:thumb)) %> </div>
+      <%= link_to 'Edit', edit_community_leader_path(@leader) %>
       
     </div>
 

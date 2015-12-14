@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "/partners/article_form" => "partners#article_form"
   post "/event" => "partners#create_event"
   post "/community_leaders/create" => "community_leaders#create"
+
   get "/users/new_leader" => "users#new_leader"
   get "/story" => "partners#edit_media"
   post "/story" => "partners#story"
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   resources :participants
   resources :partners
   resources :community_leaders
+  resources :leaders, path: "community_leaders"
   resources :profiles
   resources :family_engagements
   resources :attendance_matters
