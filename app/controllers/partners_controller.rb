@@ -29,7 +29,7 @@ class PartnersController < ApplicationController
     @event = Event.new(event_params)
     @event.partner_id = current_user.partner_id
     if @event.save 
-      redirect_to partners_path(current_user.partner_id)
+      redirect_to partner_path(current_user.partner_id)
     else
       render :new
     end
@@ -171,6 +171,8 @@ class PartnersController < ApplicationController
 
     @photo= Photo.new
     @photos=Photo.where(params[:id])
+
+    @event = Event.last(3)
   end
 
   # GET /partners/new
