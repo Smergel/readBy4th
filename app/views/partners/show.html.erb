@@ -78,6 +78,7 @@
 
 <div class="row">
   <div class="large-8 columns">
+      <h2>Events Form</h2>
       <%= form_for Event.new, url: "/event", html: { method: "POST"} do |f| %>
       <div class="field"> 
         <%= f.label :title %>
@@ -97,7 +98,7 @@
     <% end%>
   </div>
   <div class="large-16 columns">
-    <div class="event-box">
+    <div id="event-box" class="event-box">
       <% @event.reverse.each do |x| %>
         <div class="event-row">
           <a href="#/" target="_blank">

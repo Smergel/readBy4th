@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "/partners/article_form" => "partners#article_form"
   post "/event" => "partners#create_event"
   post "/community_leaders/create" => "community_leaders#create"
+  post "/community_leaders/create_event" => "community_leaders#create_event"
 
   get "/users/new_leader" => "users#new_leader"
   get "/story" => "partners#edit_media"
