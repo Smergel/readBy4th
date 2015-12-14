@@ -81,8 +81,12 @@ ActiveRecord::Schema.define(version: 20151210175401) do
     t.string   "address"
     t.integer  "zip_code"
     t.string   "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "parents", force: :cascade do |t|
