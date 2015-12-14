@@ -4,12 +4,11 @@ class PartnersController < ApplicationController
   # GET /partners
   # GET /partners.json
   def index
-    @partner=Partner.where(partner_params)
+    # @partner = Partner.where(partner_params)
     @partners = Partner.all
     @user = current_user
-    @photo= Photo.new
-    @photos=Photo.where(partner_id: @partner.id)
-
+    @photo = Photo.new
+    # @photos = Photo.where(partner_id: @partner.id)
   end
 
   def parents

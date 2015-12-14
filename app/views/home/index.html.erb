@@ -62,7 +62,17 @@
 
 <div class="darkness">
 	<div class="row">
-		<div class="large-8 columns">
+		<% @story.each do |x| %>
+			<div clas="large-8 columns">
+				<fieldset class="padder">
+					<%= image_tag x.picture, class="picture" %>
+					<h2><%= x.title %></h2>
+					<p><%= x.description %></p>
+					<span><%= x.story %></span>
+				</fieldset>
+			</div>
+		<% end %>
+		<!-- <div class="large-8 columns">
 			<fieldset class="padder">
 			 	<img src="assets/eagles_square.jpg" alt="" class="picture">
 			 	<h2 class="media-title">Eagles! Volunteer Locally</h2>
@@ -89,7 +99,7 @@
 			 	
 			 	<a href="http://libwww.freelibrary.org/readby4th/partners.cfm" target="_blank" class="button" id="btn">Learn More</a>
 			</fieldset>
-	 	</div>
+	 	</div> -->
 	</div>
 </div>
 
