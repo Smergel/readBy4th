@@ -9,6 +9,12 @@
 		<% end %>
 
 		<%= link_to "Add Child", new_participant_path, class: "button" %>
+		<h3>Informational Resources</h3>
+		<ul>
+			<li><a href="https://libwww.freelibrary.org/readby4th/programs.cfm">Programs In Philly</a></li>
+			<li><a href="https://libwww.freelibrary.org/readby4th/summer.cfm">Summer Programs</a></li>
+			<li><a href="https://libwww.freelibrary.org/readby4th/booklist.cfm">Book Lists</a></li>
+		</ul>
 	</div>
 	<div class="large-16 columns">
 		<h1>Record Reading Progress</h1>
@@ -65,38 +71,80 @@
 				<th>Data</th>
 				<!-- <th>Mininum Goal</th> -->
 			</thead>
-			<tbody>
-				<tr>
-					<td>Hours Per Day Of Individual Reading</td>
-					<td>
-						<% if z.reading.nil? %>
-							<%= 0 %>
-						<% else %>
-							<%= 1 %>
-						<% end %> 
-					</td>
-					<!-- <td>1</td> -->
-				</tr>
-				<tr>
-					<td>Hours Per Day Of Reading Instruction</td>
-					<td>0</td>
-					<!-- <td>1</td> -->
-				</tr>
-				<tr>
-					<td>Books Read Per Week</td>
-					<td>0</td>
-					<!-- <td>1.5</td> -->
-				</tr>
-			</tbody>
+			<% if Reading.where(participant_id: z.id).nil? %>	
+				<tbody>
+					<tr>
+						<td>Hours Per Day Of Individual Reading</td>
+						<td>0</td>
+						<!-- <td>1</td> -->
+					</tr>
+					<tr>
+						<td>Hours Per Day Of Reading Instruction</td>
+						<td>0</td>
+						<!-- <td>1</td> -->
+					</tr>
+					<tr>
+						<td>Books Read Per Week</td>
+						<td>0</td>
+						<!-- <td>1.5</td> -->
+					</tr>
+				</tbody>
+			<% else %>
+				<tbody>
+					<tr>
+						<td>Hours Per Day Of Individual Reading</td>
+						<td>
+							<% if Reading.where(participant_id: z.id).nil? %>
+								<%= 0 %>
+							<% else %>
+								<% total = [] %>
+								<% Reading.where(participant_id: z.id).each do |a| %>
+									<% a.hours_individual.nil? ? nil : total << a.hours_individual %>
+								<% end %>
+								<%= (total.reduce(:+) / ((Time.now - Reading.where(participant_id: z.id).first.created_at) / 86400)).round(2) %>
+							<% end %>
+						</td>
+						<!-- <td>1</td> -->
+					</tr>
+					<tr>
+						<td>Hours Per Day Of Reading Instruction</td>
+						<td>
+							<% if Reading.where(participant_id: z.id).nil? %>
+								<%= 0 %>
+							<% else %>
+								<% total = [] %>
+								<% Reading.where(participant_id: z.id).each do |a| %>
+									<% a.hours_instruction.nil? ? nil : total << a.hours_instruction %>
+								<% end %>
+								<%= (total.reduce(:+) / ((Time.now - Reading.where(participant_id: z.id).first.created_at) / 86400)).round(2) %>
+								
+							<% end %>
+						</td>
+						<!-- <td>1</td> -->
+					</tr>
+					<tr>
+						<td>Books Read Per Week</td>
+						<td>
+							<% if Reading.where(participant_id: z.id).nil? %>
+								<%= 0 %>
+							<% else %>
+								<% total = [] %>
+								<% Reading.where(participant_id: z.id).each do |a| %>
+									<% a.books.nil? ? nil : total << a.books %>
+								<% end %>
+								<%= (total.reduce(:+) / ((Time.now - Reading.where(participant_id: z.id).first.created_at) / 86400) / 24 * 7).round(2) %>
+							<% end %>
+						</td>
+						<!-- <td>1.5</td> -->
+					</tr>
+				</tbody>
+			<% end %>
 		</table>
-		<div class="large-12 columns center">
-			<h3>Hours Read Per Week</h3>
-			<img src="/assets/lineChart.png" />
+		<div class="large-24 columns center">
+			<!-- <h3>Hours Read Per Week</h3> -->
+			<!-- <div id="chart_div"></div> -->
 		</div>
-		<div class="large-12 columns center">
-			<h3>Percent of Goals Met</h3>
-			<img src="/assets/PieChartGoogle.jpg" />
-		</div>
+		
 		<% end %>
 	</div>
 </div>

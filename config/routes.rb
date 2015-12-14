@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'community_leaders/show'
-
-  get 'community_leaders/new'
-
-  get 'community_leaders/create'
-
   root 'home#index'
   get '/partners/books_read' => 'partners/books_read'
   get '/partners/absences' => 'partners#absences'
@@ -36,6 +30,7 @@ Rails.application.routes.draw do
   post '/users/load_partner/' => 'users#load_partner'
   post '/users/select_partner/load_partner' => 'users#load_partner'
   post '/photos' => 'partners#photos'
+  post '/documents' => 'partners#documents'
 
 
   # post '/users/select_partner/load_partner' => 'users#select_partner#load_partner'
