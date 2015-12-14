@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209150302) do
+ActiveRecord::Schema.define(version: 20151210175401) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -80,16 +80,9 @@ ActiveRecord::Schema.define(version: 20151209150302) do
     t.string   "lname"
     t.string   "address"
     t.integer  "zip_code"
-    t.string   "email"
     t.string   "phone"
-    t.string   "logo_file_name"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
-    t.datetime "logo_updated_at"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-<<<<<<< HEAD
-=======
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "parents", force: :cascade do |t|
@@ -99,7 +92,6 @@ ActiveRecord::Schema.define(version: 20151209150302) do
     t.integer  "zip_code"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
->>>>>>> b7fbd76df2b870ce5b8314bcc8c5b905a0d07326
   end
 
   create_table "participants", force: :cascade do |t|
@@ -188,7 +180,7 @@ ActiveRecord::Schema.define(version: 20151209150302) do
   create_table "users", force: :cascade do |t|
     t.integer  "partner_id"
     t.integer  "parent_id"
-    t.integer  "community_leader_id"
+    t.integer  "leader_id"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.string   "email",                  default: "",    null: false

@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'community_leaders/show'
-
-  get 'community_leaders/new'
-
-  get 'community_leaders/create'
-
   root 'home#index'
   get '/partners/books_read' => 'partners/books_read'
   get '/partners/absences' => 'partners#absences'
