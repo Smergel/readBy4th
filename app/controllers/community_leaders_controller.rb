@@ -1,8 +1,10 @@
 class CommunityLeadersController < ApplicationController
+  before_action :set_leader, only: [:show, :edit, :update, :destroy]
   def index
   end
 
   def show
+    @leader=Leader.find(params[:id])
   end
 
   def edit
@@ -12,7 +14,7 @@ class CommunityLeadersController < ApplicationController
   end
 
   def new
-    @community_leaders = Leader.new
+    @leader = Leader.new
   end
 
   def create
@@ -24,11 +26,35 @@ class CommunityLeadersController < ApplicationController
     end
   end
 
-  def destroy
+  def update
+    respond_to do |format|
+      if @leader.update(leader_params)
+        format.html { redirect_to @leader, notice: 'leader was successfully updated.' }
+        format.json { render :show, status: :ok, location: @leader }
+      else
+        format.html { render :edit }
+        format.json { render json: @leader.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
+  # DELETE /leaders/1
+  # DELETE /leaders/1.json
+  def destroy
+    @leader.destroy
+    respond_to do |format|
+      format.html { redirect_to leaders_url, notice: 'leader was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
+  def set_leader
+      @leader = Leader.find(params[:id])
+    end
+
   def leader_params
-    params.require(:leader).permit(:fname, :lname, :zip_code, :number, :address)
+    params.require(:leader).permit(:fname, :lname, :zip_code, :number, :address, :logo)
   end
 
 end
