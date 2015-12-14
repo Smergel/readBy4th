@@ -113,8 +113,13 @@
 	padding: 20px;
 	background-color: #fff;
 	border-radius: 5px;
-	height:510px;
 	width: 100%;
+	overflow: hidden;
+	margin: 25px 0px;
+
+}
+.padder p{
+	text-align: left;
 }
 .darkness {
 	background-color: #f4f4f4;
