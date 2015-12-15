@@ -16,6 +16,10 @@
  *= requre slick-theme
  */
 
+#event-box {
+	height: 100%;
+	margin: 25px 0px;
+}
  .social_media{
  	width: 60px;
  	height: 60px;
@@ -96,7 +100,7 @@
  	height: 250px;
  	background-color: darkblue;
  	border-radius: 100%;
- }
+}
 .media-title {
 	text-align: center;
 }
@@ -113,17 +117,20 @@
 	padding: 20px;
 	background-color: #fff;
 	border-radius: 5px;
+	overflow: hidden;
+	width: 100%;
+	margin: 25px 0px;
+}
+.padder p {
 	width: 100%;
 	overflow: hidden;
 	margin: 25px 0px;
-
-}
-.padder p{
 	text-align: left;
 }
 .darkness {
 	background-color: #f4f4f4;
 	width: 100vw;
+	}
 }
 .full-width {
 	width: 150px;

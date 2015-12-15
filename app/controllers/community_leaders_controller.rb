@@ -5,6 +5,18 @@ class CommunityLeadersController < ApplicationController
 
   def show
     @leader=Leader.find(params[:id])
+
+    @event = Event.last(3)
+  end
+
+  def create_event
+    @event = Event.new(event_params)
+    @event.partner_id = current_user.partner_id
+    if @event.save 
+      redirect_to community_leader_path(current_user.leader_id)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -57,4 +69,7 @@ class CommunityLeadersController < ApplicationController
     params.require(:leader).permit(:fname, :lname, :zip_code, :number, :address, :logo)
   end
 
+  def event_params
+    params.require(:event).permit(:title, :description, :date)
+  end
 end
