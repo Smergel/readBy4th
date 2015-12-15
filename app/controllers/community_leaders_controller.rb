@@ -6,12 +6,12 @@ class CommunityLeadersController < ApplicationController
   def show
     @leader=Leader.find(params[:id])
 
-    @event = Event.last(3)
+    @event = Event.where(leader_id: params[:id]).last(5)
   end
 
   def create_event
     @event = Event.new(event_params)
-    @event.partner_id = current_user.partner_id
+    @event.leader_id = current_user.leader_id
     if @event.save 
       redirect_to community_leader_path(current_user.leader_id)
     else

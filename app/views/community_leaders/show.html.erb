@@ -55,14 +55,16 @@
   </div>
   <div class="large-16 columns">
     <div id="event-box" class="event-box">
-      <% @event.reverse.each do |x| %>
-        <div class="event-row">
-          <a href="#/" target="_blank">
-            <div class="date-time"><%= x.date.strftime("%A, %d %b %Y") %></div>
-          </a>
-          <div class="event-title"><%= x.title %></div>
-          <div class="event-location"><%= x.description %></div>
-        </div>
+      <% if @event != nil %>
+        <% @event.reverse.each do |x| %>
+          <div class="event-row">
+            <a href="#/" target="_blank">
+              <div class="date-time"><%= x.date.strftime("%A, %d %b %Y") %></div>
+            </a>
+            <div class="event-title"><%= x.title %></div>
+            <div class="event-location"><%= x.description %></div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

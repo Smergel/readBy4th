@@ -164,7 +164,7 @@ class PartnersController < ApplicationController
     @photo= Photo.new
     @photos=Photo.where(params[:id])
 
-    @event = Event.last(3)
+    @event = Event.where(partner_id: params[:id]).last(5)
   end
 
   # GET /partners/new
