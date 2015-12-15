@@ -2,15 +2,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get '/partners/books_read' => 'partners/books_read'
-  get '/partners/absences' => 'partners#absences'
-  get '/report' => 'partners#report'
-  get '/partners/community_leaders' => 'partners#community_leaders'
-  get '/partners/parents' => 'partners#parents'
   get '/users/new_parent' => 'users#new_parent'
   get '/users/create_parent' => 'users#create_parent'
   post '/participant_stats' => 'parents#participant_stats'
-  post "/partners/articles" => "partners#articles"
-  get "/partners/article_form" => "partners#article_form"
   post "/event" => "partners#create_event"
   post "/community_leaders/create" => "community_leaders#create"
 
@@ -19,16 +13,11 @@ Rails.application.routes.draw do
   post "/story" => "partners#story"
 
   devise_for :users, controllers: { registrations: "registrations" }
-  resources :posts
   resources :parents
   resources :participants
   resources :partners
   resources :community_leaders
   resources :leaders, path: "community_leaders"
-  resources :profiles
-  resources :family_engagements
-  resources :attendance_matters
-  resources :year_round_readers
 
   get '/users/select_partner/' => 'users#select_partner'
   post '/users/load_partner/' => 'users#load_partner'

@@ -13,28 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20151214153430) do
 
-  create_table "articles", force: :cascade do |t|
-    t.string   "title"
-    t.string   "link_to_article"
-    t.string   "link_to_picture"
-    t.text     "article_preview"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "attendance_matters", force: :cascade do |t|
-    t.integer  "absences"
-    t.boolean  "asthma"
-    t.text     "reason"
-    t.boolean  "excused"
-    t.integer  "asthma_triggers_remediated"
-    t.integer  "participant_id"
-    t.integer  "partner_id"
-    t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
   create_table "documents", force: :cascade do |t|
     t.integer  "partner_id"
     t.string   "doc_file_name"
@@ -52,27 +30,6 @@ ActiveRecord::Schema.define(version: 20151214153430) do
     t.integer  "partner_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "evidence_based_readings", force: :cascade do |t|
-    t.integer  "teachers"
-    t.integer  "administrators"
-    t.string   "school"
-    t.integer  "school_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  create_table "family_engagements", force: :cascade do |t|
-    t.integer  "tweets"
-    t.integer  "facebook"
-    t.integer  "instagram"
-    t.integer  "community_centers"
-    t.integer  "public_speech"
-    t.integer  "partner_id"
-    t.integer  "user_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
   end
 
   create_table "leaders", force: :cascade do |t|
@@ -135,42 +92,6 @@ ActiveRecord::Schema.define(version: 20151214153430) do
     t.datetime "updated_at",         null: false
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "partner_id"
-    t.integer  "post_type"
-    t.string   "post_description"
-    t.string   "post_attachment_file_name"
-    t.string   "post_attachment_content_type"
-    t.integer  "post_attachment_file_size"
-    t.datetime "post_attachment_updated_at"
-    t.integer  "attendance"
-    t.integer  "absence"
-    t.string   "absence_reason"
-    t.integer  "books_distributed"
-    t.string   "asthma_remediation"
-    t.integer  "hours_spent_reading"
-    t.integer  "books_read"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "position"
-    t.boolean  "admin"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
-    t.integer  "phone"
-    t.string   "user_email"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
   create_table "readings", force: :cascade do |t|
     t.integer  "participant_id"
     t.integer  "hours_individual"
@@ -212,16 +133,5 @@ ActiveRecord::Schema.define(version: 20151214153430) do
   add_index "users", ["approved"], name: "index_users_on_approved"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
-  create_table "year_round_readers", force: :cascade do |t|
-    t.integer  "hours_read"
-    t.integer  "books_read"
-    t.integer  "hours_read_to"
-    t.integer  "books_loaned"
-    t.integer  "partner_id"
-    t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
 
 end

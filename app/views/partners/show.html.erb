@@ -13,7 +13,6 @@
     <div class="vcard">
       <h1><%= @partner.name %></h1>
       <div class="logo"> <%= image_tag(@partner.logo.url(:thumb)) %> </div>
-      <div class="email"><span class="vcard-label">Email: </span><a><%= @partner.email %></a></div>
       <div class="tel"><span class="type vcard-label">Phone: </span><a href="tel:+<% @partner.phone %>"><%= @partner.phone %></a></div>
       <div class="adr">
         <div class="email"><span class="vcard-label">Website: </span><a href="<% @partner.website %>"><%= @partner.website %></a></div>

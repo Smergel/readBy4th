@@ -159,14 +159,6 @@ class PartnersController < ApplicationController
   # GET /partners/1.json
   def show
     @user = current_user
-    @family_engagement = FamilyEngagement.new
-    @year_round_readers = YearRoundReader.new
-    @attendance_matter = AttendanceMatter.new
-
-    @all_attendance = AttendanceMatter.where(partner_id: @partner.id)
-    @all_year_round_reader = YearRoundReader.where(partner_id: @partner.id)
-
-    @students = Participant.where(student: true, partner_id: @partner.id)
     @participants = Participant.all
 
     @photo= Photo.new

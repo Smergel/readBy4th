@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_one      :profile
   belongs_to   :partner
   has_many     :posts
   has_many     :attendance_matter
